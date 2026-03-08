@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Home, BookOpen, Layers, BarChart3, Sparkles, Menu, User, CalendarDays, Bookmark, FlaskConical, Video, X } from 'lucide-react';
+import { Home, BookOpen, Layers, BarChart3, Sparkles, Menu, User, CalendarDays, Bookmark, FlaskConical, Video, Sun, Moon } from 'lucide-react';
+import { useTheme } from '@/hooks/useTheme';
 import {
   Sheet,
   SheetContent,
