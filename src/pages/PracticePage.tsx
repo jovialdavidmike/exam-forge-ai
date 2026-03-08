@@ -1,8 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark } from 'lucide-react';
 import { questions as allQuestions, subjects } from '@/data/questions';
-import { recordAttempt, markDailyComplete } from '@/data/store';
+import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 
 export default function PracticePage() {
   const [searchParams] = useSearchParams();
