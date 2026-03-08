@@ -42,6 +42,7 @@ export default function PracticePage() {
     const correct = idx === current.correctIndex;
     if (correct) setScore(prev => prev + 1);
     recordAttempt(current.id, current.subject, current.topic, correct);
+    incrementQuestions();
   }, [answered, current]);
 
   const handleNext = useCallback(() => {
