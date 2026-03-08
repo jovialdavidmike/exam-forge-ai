@@ -29,6 +29,7 @@ export default function MobileLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { dark, toggle } = useTheme();
 
   const hideNav = location.pathname.startsWith('/quiz');
 
