@@ -1,4 +1,5 @@
 import { useAds } from '@/contexts/AdContext';
+import { ADMOB_CONFIG } from '@/config/admob';
 import { X } from 'lucide-react';
 
 export default function InterstitialAd() {
