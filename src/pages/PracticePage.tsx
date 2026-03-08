@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock } from 'lucide-react';
 import { questions as allQuestions, subjects } from '@/data/questions';
 import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 import { useAds } from '@/contexts/AdContext';
@@ -11,24 +11,31 @@ export default function PracticePage() {
   const subjectId = searchParams.get('subject');
   const isDaily = searchParams.get('daily') === 'true';
 
+  const { incrementQuestions, interstitialShownThisSession, setShowInterstitial, isPremium, isTopicUnlocked } = useAds();
+
   const questionSet = useMemo(() => {
+    let pool = allQuestions;
+
+    // Filter out premium questions the user hasn't unlocked
+    if (!isPremium) {
+      pool = pool.filter(q => !q.premium || isTopicUnlocked(q.topic));
+    }
+
     if (isDaily) {
-      // Shuffle all and pick 10
-      const shuffled = [...allQuestions].sort(() => Math.random() - 0.5);
+      const shuffled = [...pool].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, 10);
     }
     if (subjectId) {
-      return allQuestions.filter(q => q.subject === subjectId).sort(() => Math.random() - 0.5);
+      return pool.filter(q => q.subject === subjectId).sort(() => Math.random() - 0.5);
     }
-    return allQuestions.sort(() => Math.random() - 0.5);
-  }, [subjectId, isDaily]);
+    return pool.sort(() => Math.random() - 0.5);
+  }, [subjectId, isDaily, isPremium, isTopicUnlocked]);
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [bookmarks, setBookmarks] = useState<string[]>(getBookmarks());
-  const { incrementQuestions, interstitialShownThisSession, setShowInterstitial, bonusQuestions } = useAds();
 
   const current = questionSet[currentIdx];
   const answered = selectedOption !== null;
@@ -43,13 +50,12 @@ export default function PracticePage() {
     if (correct) setScore(prev => prev + 1);
     recordAttempt(current.id, current.subject, current.topic, correct);
     incrementQuestions();
-  }, [answered, current]);
+  }, [answered, current, incrementQuestions]);
 
   const handleNext = useCallback(() => {
     if (currentIdx + 1 >= questionSet.length) {
       if (isDaily) markDailyComplete();
       setFinished(true);
-      // Show interstitial after finishing quiz (max 1 per session)
       if (!interstitialShownThisSession) {
         setShowInterstitial(true);
       }
@@ -57,7 +63,7 @@ export default function PracticePage() {
       setCurrentIdx(prev => prev + 1);
       setSelectedOption(null);
     }
-  }, [currentIdx, questionSet.length, isDaily]);
+  }, [currentIdx, questionSet.length, isDaily, interstitialShownThisSession, setShowInterstitial]);
 
   if (!current && !finished) {
     return (
@@ -93,6 +99,7 @@ export default function PracticePage() {
   }
 
   const optionLabels = ['A', 'B', 'C', 'D'];
+  const difficultyColor = current.difficulty === 'easy' ? 'text-success' : current.difficulty === 'medium' ? 'text-accent' : 'text-destructive';
 
   return (
     <div className="px-4 pt-4 pb-4">
@@ -103,7 +110,9 @@ export default function PracticePage() {
         </button>
         <div className="flex-1">
           <p className="text-xs text-muted-foreground font-medium">{subjectName}</p>
-          <p className="text-[10px] text-muted-foreground">{current.topic} · {current.difficulty}</p>
+          <p className="text-[10px] text-muted-foreground">
+            {current.topic} · <span className={`font-semibold ${difficultyColor}`}>{current.difficulty}</span>
+          </p>
         </div>
         <button
           onClick={() => { toggleBookmark(current.id); setBookmarks(getBookmarks()); }}
