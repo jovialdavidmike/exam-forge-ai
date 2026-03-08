@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useAds } from '@/contexts/AdContext';
-import { ADMOB_CONFIG } from '@/config/admob';
-import { Lock, Play, X, CheckCircle, Crown } from 'lucide-react';
+import { isMedianApp, showInterstitialAd } from '@/lib/median';
+import { Lock, Play, X, CheckCircle } from 'lucide-react';
 
 export default function UnlockContentAd() {
   const {
@@ -15,13 +15,18 @@ export default function UnlockContentAd() {
   if (isPremium || !showUnlockAd || !pendingUnlockTopicId) return null;
 
   const handleWatch = () => {
-    setWatching(true);
-    // Simulate ad (native SDK handles real ads)
-    setTimeout(() => {
-      setWatching(false);
+    if (isMedianApp()) {
+      showInterstitialAd();
       setUnlocked(true);
       unlockTopic(pendingUnlockTopicId);
-    }, 3000);
+    } else {
+      setWatching(true);
+      setTimeout(() => {
+        setWatching(false);
+        setUnlocked(true);
+        unlockTopic(pendingUnlockTopicId);
+      }, 3000);
+    }
   };
 
   const handleClose = () => {
@@ -52,11 +57,7 @@ export default function UnlockContentAd() {
           </div>
         ) : watching ? (
           <div className="p-8 text-center">
-            <div
-              id="admob-rewarded-unlock"
-              data-ad-unit-id={ADMOB_CONFIG.rewardedAdUnitId}
-              className="w-full aspect-video bg-secondary/30 rounded-xl flex flex-col items-center justify-center mb-4"
-            >
+            <div className="w-full aspect-video bg-secondary/30 rounded-xl flex flex-col items-center justify-center mb-4">
               <div className="w-10 h-10 rounded-full border-4 border-primary border-t-transparent animate-spin mb-3" />
               <span className="text-xs text-muted-foreground">Playing ad...</span>
             </div>

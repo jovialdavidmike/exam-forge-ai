@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAds } from '@/contexts/AdContext';
-import { ADMOB_CONFIG } from '@/config/admob';
+import { isMedianApp, showInterstitialAd } from '@/lib/median';
 import { Gift, Play, X, CheckCircle } from 'lucide-react';
 
 export default function RewardedAd() {
@@ -11,13 +11,20 @@ export default function RewardedAd() {
   if (isPremium || !showRewardedAd) return null;
 
   const handleWatch = () => {
-    setWatching(true);
-    // Simulate ad watching (in real native app, AdMob SDK handles this)
-    setTimeout(() => {
-      setWatching(false);
+    if (isMedianApp()) {
+      // Median doesn't have a dedicated rewarded ad API — use interstitial as reward gate
+      showInterstitialAd();
       setRewarded(true);
       addBonusQuestions(5);
-    }, 3000);
+    } else {
+      // Web fallback: simulate ad watching
+      setWatching(true);
+      setTimeout(() => {
+        setWatching(false);
+        setRewarded(true);
+        addBonusQuestions(5);
+      }, 3000);
+    }
   };
 
   const handleClose = () => {
@@ -47,7 +54,7 @@ export default function RewardedAd() {
           </div>
         ) : watching ? (
           <div className="p-8 text-center">
-            <div id="admob-rewarded" data-ad-unit-id={ADMOB_CONFIG.rewardedAdUnitId} className="w-full aspect-video bg-secondary/30 rounded-xl flex flex-col items-center justify-center mb-4">
+            <div className="w-full aspect-video bg-secondary/30 rounded-xl flex flex-col items-center justify-center mb-4">
               <div className="w-10 h-10 rounded-full border-4 border-primary border-t-transparent animate-spin mb-3" />
               <span className="text-xs text-muted-foreground">Playing ad...</span>
             </div>

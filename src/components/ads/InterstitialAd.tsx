@@ -1,12 +1,24 @@
+import { useEffect } from 'react';
 import { useAds } from '@/contexts/AdContext';
-import { ADMOB_CONFIG } from '@/config/admob';
+import { isMedianApp, showInterstitialAd } from '@/lib/median';
 import { X } from 'lucide-react';
 
 export default function InterstitialAd() {
   const { isPremium, showInterstitial, setShowInterstitial, markInterstitialShown } = useAds();
 
-  if (isPremium || !showInterstitial) return null;
+  useEffect(() => {
+    // When triggered inside the native app, show a real interstitial via Median bridge
+    if (showInterstitial && !isPremium && isMedianApp()) {
+      showInterstitialAd();
+      setShowInterstitial(false);
+      markInterstitialShown();
+    }
+  }, [showInterstitial, isPremium, setShowInterstitial, markInterstitialShown]);
 
+  // In the native app Median handles interstitial rendering — no fallback needed
+  if (isPremium || !showInterstitial || isMedianApp()) return null;
+
+  // Web-only fallback placeholder
   const handleClose = () => {
     setShowInterstitial(false);
     markInterstitialShown();
@@ -15,7 +27,6 @@ export default function InterstitialAd() {
   return (
     <div className="fixed inset-0 z-[100] bg-foreground/80 flex items-center justify-center p-6">
       <div className="bg-card rounded-2xl border border-border w-full max-w-sm overflow-hidden shadow-2xl">
-        {/* Ad content placeholder */}
         <div className="aspect-[4/5] bg-secondary/30 flex flex-col items-center justify-center p-6 text-center">
           <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
             <span className="text-2xl">📢</span>
@@ -24,8 +35,8 @@ export default function InterstitialAd() {
           <p className="text-xs text-muted-foreground">
             This ad helps keep ExamForge free for all students
           </p>
-          <div id="admob-interstitial" data-ad-unit-id={ADMOB_CONFIG.interstitialAdUnitId} className="w-full h-32 bg-muted rounded-lg mt-4 flex items-center justify-center">
-            <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Ad Space</span>
+          <div className="w-full h-32 bg-muted rounded-lg mt-4 flex items-center justify-center">
+            <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Ad Space (native only)</span>
           </div>
         </div>
         <div className="p-4 border-t border-border">
