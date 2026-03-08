@@ -11,6 +11,8 @@ import ProgressPage from "./pages/ProgressPage";
 import ProfilePage from "./pages/ProfilePage";
 import FormulaSheetPage from "./pages/FormulaSheetPage";
 import BookmarksPage from "./pages/BookmarksPage";
+import AITutorPage from "./pages/AITutorPage";
+import StudyPlanPage from "./pages/StudyPlanPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
