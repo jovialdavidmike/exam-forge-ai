@@ -1,6 +1,7 @@
 import { ReactNode, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Home, BookOpen, Layers, BarChart3, Sparkles, Menu, User, CalendarDays, Bookmark, FlaskConical, Video, X } from 'lucide-react';
+import { Home, BookOpen, Layers, BarChart3, Sparkles, Menu, User, CalendarDays, Bookmark, FlaskConical, Video, Sun, Moon } from 'lucide-react';
+import { useTheme } from '@/hooks/useTheme';
 import {
   Sheet,
   SheetContent,
@@ -28,6 +29,7 @@ export default function MobileLayout({ children }: { children: ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const { dark, toggle } = useTheme();
 
   const hideNav = location.pathname.startsWith('/quiz');
 
@@ -64,8 +66,21 @@ export default function MobileLayout({ children }: { children: ReactNode }) {
               })}
             </div>
 
-            {/* Videos */}
+            {/* Dark Mode Toggle */}
             <div className="mx-2 mt-4">
+              <button
+                onClick={toggle}
+                className="w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  {dark ? <Sun className="w-4.5 h-4.5 text-streak" /> : <Moon className="w-4.5 h-4.5 text-muted-foreground" />}
+                  <span>{dark ? 'Light Mode' : 'Dark Mode'}</span>
+                </div>
+              </button>
+            </div>
+
+            {/* Videos */}
+            <div className="mx-2 mt-2">
               <button
                 onClick={() => { navigate('/videos'); setMenuOpen(false); }}
                 className="w-full p-4 rounded-xl bg-muted/60 border border-border text-left hover:bg-muted transition-colors"
