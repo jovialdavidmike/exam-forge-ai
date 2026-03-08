@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import BannerAd from '@/components/ads/BannerAd';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
