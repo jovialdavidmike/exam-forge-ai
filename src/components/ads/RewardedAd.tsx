@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAds } from '@/contexts/AdContext';
+import { ADMOB_CONFIG } from '@/config/admob';
 import { Gift, Play, X, CheckCircle } from 'lucide-react';
 
 export default function RewardedAd() {
