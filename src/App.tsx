@@ -11,6 +11,8 @@ import ProgressPage from "./pages/ProgressPage";
 import ProfilePage from "./pages/ProfilePage";
 import FormulaSheetPage from "./pages/FormulaSheetPage";
 import BookmarksPage from "./pages/BookmarksPage";
+import AITutorPage from "./pages/AITutorPage";
+import StudyPlanPage from "./pages/StudyPlanPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +32,8 @@ const App = () => (
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/formulas" element={<FormulaSheetPage />} />
             <Route path="/bookmarks" element={<BookmarksPage />} />
+            <Route path="/ai-tutor" element={<AITutorPage />} />
+            <Route path="/study-plan" element={<StudyPlanPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MobileLayout>

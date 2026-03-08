@@ -1,0 +1,7 @@
+project_id = "bqposngvoimikmptuqye"
+
+[functions.ai-tutor]
+verify_jwt = false
+
+[functions.study-plan]
+verify_jwt = false

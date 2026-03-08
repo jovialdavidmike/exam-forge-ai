@@ -1,13 +1,13 @@
 import { ReactNode } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Home, BookOpen, Layers, BarChart3, User } from 'lucide-react';
+import { Home, BookOpen, Layers, BarChart3, Sparkles } from 'lucide-react';
 
 const tabs = [
   { path: '/', label: 'Home', icon: Home },
   { path: '/practice', label: 'Practice', icon: BookOpen },
   { path: '/topics', label: 'Topics', icon: Layers },
+  { path: '/ai-tutor', label: 'AI Tutor', icon: Sparkles },
   { path: '/progress', label: 'Progress', icon: BarChart3 },
-  { path: '/profile', label: 'Profile', icon: User },
 ];
 
 export default function MobileLayout({ children }: { children: ReactNode }) {
