@@ -1,8 +1,8 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, ChevronRight } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark } from 'lucide-react';
 import { questions as allQuestions, subjects } from '@/data/questions';
-import { recordAttempt, markDailyComplete } from '@/data/store';
+import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 
 export default function PracticePage() {
   const [searchParams] = useSearchParams();
@@ -26,6 +26,7 @@ export default function PracticePage() {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [bookmarks, setBookmarks] = useState<string[]>(getBookmarks());
 
   const current = questionSet[currentIdx];
   const answered = selectedOption !== null;
@@ -97,6 +98,12 @@ export default function PracticePage() {
           <p className="text-xs text-muted-foreground font-medium">{subjectName}</p>
           <p className="text-[10px] text-muted-foreground">{current.topic} · {current.difficulty}</p>
         </div>
+        <button
+          onClick={() => { toggleBookmark(current.id); setBookmarks(getBookmarks()); }}
+          className="p-1.5"
+        >
+          <Bookmark className={`w-4.5 h-4.5 ${bookmarks.includes(current.id) ? 'fill-primary text-primary' : 'text-muted-foreground'}`} />
+        </button>
         <span className="text-xs font-bold text-foreground bg-secondary px-2.5 py-1 rounded-full">
           {currentIdx + 1}/{questionSet.length}
         </span>
