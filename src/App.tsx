@@ -35,6 +35,7 @@ const App = () => (
             <Route path="/bookmarks" element={<BookmarksPage />} />
             <Route path="/ai-tutor" element={<AITutorPage />} />
             <Route path="/study-plan" element={<StudyPlanPage />} />
+            <Route path="/videos" element={<VideosPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MobileLayout>
