@@ -7,6 +7,7 @@ import MobileLayout from "./components/MobileLayout";
 import { AdProvider } from "./contexts/AdContext";
 import InterstitialAd from "./components/ads/InterstitialAd";
 import RewardedAd from "./components/ads/RewardedAd";
+import UnlockContentAd from "./components/ads/UnlockContentAd";
 import HomePage from "./pages/HomePage";
 import PracticePage from "./pages/PracticePage";
 import TopicsPage from "./pages/TopicsPage";
@@ -29,6 +30,7 @@ const App = () => (
         <Sonner />
         <InterstitialAd />
         <RewardedAd />
+        <UnlockContentAd />
         <BrowserRouter>
           <MobileLayout>
             <Routes>

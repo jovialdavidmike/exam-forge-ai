@@ -17,6 +17,23 @@ interface AdContextType {
   markInterstitialShown: () => void;
   showInterstitial: boolean;
   setShowInterstitial: (v: boolean) => void;
+  // Content unlocking
+  unlockedTopics: string[];
+  unlockTopic: (topicId: string) => void;
+  isTopicUnlocked: (topicId: string) => boolean;
+  showUnlockAd: boolean;
+  setShowUnlockAd: (v: boolean) => void;
+  pendingUnlockTopicId: string | null;
+  setPendingUnlockTopicId: (id: string | null) => void;
+}
+
+const UNLOCKED_KEY = 'examforge_unlocked_topics';
+
+function getStoredUnlocked(): string[] {
+  try {
+    const raw = localStorage.getItem(UNLOCKED_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch { return []; }
 }
 
 const AdContext = createContext<AdContextType | null>(null);
@@ -34,6 +51,9 @@ export function AdProvider({ children }: { children: ReactNode }) {
   const [bonusQuestions, setBonusQuestions] = useState(0);
   const [interstitialShownThisSession, setInterstitialShown] = useState(false);
   const [showInterstitial, setShowInterstitial] = useState(false);
+  const [unlockedTopics, setUnlockedTopics] = useState<string[]>(getStoredUnlocked());
+  const [showUnlockAd, setShowUnlockAd] = useState(false);
+  const [pendingUnlockTopicId, setPendingUnlockTopicId] = useState<string | null>(null);
 
   const incrementQuestions = useCallback(() => {
     setQuestionsAnswered(prev => {
@@ -59,6 +79,19 @@ export function AdProvider({ children }: { children: ReactNode }) {
     setInterstitialShown(true);
   }, []);
 
+  const unlockTopic = useCallback((topicId: string) => {
+    setUnlockedTopics(prev => {
+      if (prev.includes(topicId)) return prev;
+      const next = [...prev, topicId];
+      localStorage.setItem(UNLOCKED_KEY, JSON.stringify(next));
+      return next;
+    });
+  }, []);
+
+  const isTopicUnlocked = useCallback((topicId: string) => {
+    return isPremium || unlockedTopics.includes(topicId);
+  }, [isPremium, unlockedTopics]);
+
   return (
     <AdContext.Provider value={{
       isPremium, setPremium,
@@ -67,6 +100,9 @@ export function AdProvider({ children }: { children: ReactNode }) {
       bonusQuestions, addBonusQuestions, useBonusQuestion,
       interstitialShownThisSession, markInterstitialShown,
       showInterstitial, setShowInterstitial,
+      unlockedTopics, unlockTopic, isTopicUnlocked,
+      showUnlockAd, setShowUnlockAd,
+      pendingUnlockTopicId, setPendingUnlockTopicId,
     }}>
       {children}
     </AdContext.Provider>
