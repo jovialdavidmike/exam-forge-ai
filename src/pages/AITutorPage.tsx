@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import BannerAd from '@/components/ads/BannerAd';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -206,6 +207,9 @@ export default function AITutorPage() {
           </div>
         )}
       </div>
+
+      {/* Ad Banner */}
+      <BannerAd className="px-4 pt-2" />
 
       {/* Input */}
       <div className="px-4 py-3 border-t border-border bg-background">

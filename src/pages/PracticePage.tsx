@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark } from 'lucide-react';
 import { questions as allQuestions, subjects } from '@/data/questions';
 import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
+import { useAds } from '@/contexts/AdContext';
 
 export default function PracticePage() {
   const [searchParams] = useSearchParams();
@@ -27,6 +28,7 @@ export default function PracticePage() {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [bookmarks, setBookmarks] = useState<string[]>(getBookmarks());
+  const { incrementQuestions, interstitialShownThisSession, setShowInterstitial, bonusQuestions } = useAds();
 
   const current = questionSet[currentIdx];
   const answered = selectedOption !== null;
@@ -40,12 +42,17 @@ export default function PracticePage() {
     const correct = idx === current.correctIndex;
     if (correct) setScore(prev => prev + 1);
     recordAttempt(current.id, current.subject, current.topic, correct);
+    incrementQuestions();
   }, [answered, current]);
 
   const handleNext = useCallback(() => {
     if (currentIdx + 1 >= questionSet.length) {
       if (isDaily) markDailyComplete();
       setFinished(true);
+      // Show interstitial after finishing quiz (max 1 per session)
+      if (!interstitialShownThisSession) {
+        setShowInterstitial(true);
+      }
     } else {
       setCurrentIdx(prev => prev + 1);
       setSelectedOption(null);

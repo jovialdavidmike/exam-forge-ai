@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ChevronRight, ChevronDown, BookOpen } from 'lucide-react';
 import { topics, subjects } from '@/data/questions';
+import BannerAd from '@/components/ads/BannerAd';
 
 export default function TopicsPage() {
   const navigate = useNavigate();
@@ -66,6 +67,8 @@ export default function TopicsPage() {
           </div>
         );
       })}
+      {/* Ad Banner */}
+      <BannerAd />
     </div>
   );
 }
