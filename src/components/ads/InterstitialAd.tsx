@@ -1,0 +1,42 @@
+import { useAds } from '@/contexts/AdContext';
+import { X } from 'lucide-react';
+
+export default function InterstitialAd() {
+  const { isPremium, showInterstitial, setShowInterstitial, markInterstitialShown } = useAds();
+
+  if (isPremium || !showInterstitial) return null;
+
+  const handleClose = () => {
+    setShowInterstitial(false);
+    markInterstitialShown();
+  };
+
+  return (
+    <div className="fixed inset-0 z-[100] bg-foreground/80 flex items-center justify-center p-6">
+      <div className="bg-card rounded-2xl border border-border w-full max-w-sm overflow-hidden shadow-2xl">
+        {/* Ad content placeholder */}
+        <div className="aspect-[4/5] bg-secondary/30 flex flex-col items-center justify-center p-6 text-center">
+          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+            <span className="text-2xl">📢</span>
+          </div>
+          <p className="text-sm font-bold text-foreground mb-1">Sponsored Content</p>
+          <p className="text-xs text-muted-foreground">
+            This ad helps keep ExamForge free for all students
+          </p>
+          <div id="admob-interstitial" className="w-full h-32 bg-muted rounded-lg mt-4 flex items-center justify-center">
+            <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Ad Space</span>
+          </div>
+        </div>
+        <div className="p-4 border-t border-border">
+          <button
+            onClick={handleClose}
+            className="w-full flex items-center justify-center gap-2 bg-secondary text-secondary-foreground py-2.5 rounded-xl text-sm font-semibold"
+          >
+            <X className="w-4 h-4" />
+            Close Ad
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
