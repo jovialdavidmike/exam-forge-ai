@@ -40,6 +40,7 @@ const App = () => (
           </Routes>
         </MobileLayout>
       </BrowserRouter>
+      </AdProvider>
     </TooltipProvider>
   </QueryClientProvider>
 );

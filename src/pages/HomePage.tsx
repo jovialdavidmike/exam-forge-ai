@@ -106,6 +106,8 @@ export default function HomePage() {
           })}
         </div>
       </div>
+      {/* Ad Banner */}
+      <BannerAd />
     </div>
   );
 }

@@ -67,6 +67,8 @@ export default function TopicsPage() {
           </div>
         );
       })}
+      {/* Ad Banner */}
+      <BannerAd />
     </div>
   );
 }

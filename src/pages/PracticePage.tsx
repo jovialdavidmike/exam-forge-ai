@@ -49,6 +49,10 @@ export default function PracticePage() {
     if (currentIdx + 1 >= questionSet.length) {
       if (isDaily) markDailyComplete();
       setFinished(true);
+      // Show interstitial after finishing quiz (max 1 per session)
+      if (!interstitialShownThisSession) {
+        setShowInterstitial(true);
+      }
     } else {
       setCurrentIdx(prev => prev + 1);
       setSelectedOption(null);
