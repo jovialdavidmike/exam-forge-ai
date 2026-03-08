@@ -32,6 +32,8 @@ const App = () => (
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/formulas" element={<FormulaSheetPage />} />
             <Route path="/bookmarks" element={<BookmarksPage />} />
+            <Route path="/ai-tutor" element={<AITutorPage />} />
+            <Route path="/study-plan" element={<StudyPlanPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MobileLayout>

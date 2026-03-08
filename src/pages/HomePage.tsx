@@ -56,6 +56,31 @@ export default function HomePage() {
         {!dailyDone && <ChevronRight className="w-5 h-5" />}
       </button>
 
+      {/* Quick Actions */}
+      <div className="grid grid-cols-3 gap-2.5">
+        <button
+          onClick={() => navigate('/ai-tutor')}
+          className="bg-card rounded-xl border border-border p-3 flex flex-col items-center gap-1.5"
+        >
+          <Sparkles className="w-5 h-5 text-primary" />
+          <span className="text-[10px] font-semibold text-foreground">AI Tutor</span>
+        </button>
+        <button
+          onClick={() => navigate('/study-plan')}
+          className="bg-card rounded-xl border border-border p-3 flex flex-col items-center gap-1.5"
+        >
+          <CalendarDays className="w-5 h-5 text-accent" />
+          <span className="text-[10px] font-semibold text-foreground">Study Plan</span>
+        </button>
+        <button
+          onClick={() => navigate('/profile')}
+          className="bg-card rounded-xl border border-border p-3 flex flex-col items-center gap-1.5"
+        >
+          <User className="w-5 h-5 text-muted-foreground" />
+          <span className="text-[10px] font-semibold text-foreground">Profile</span>
+        </button>
+      </div>
+
       {/* Subjects */}
       <div>
         <h2 className="text-base font-bold text-foreground mb-3">Subjects</h2>
