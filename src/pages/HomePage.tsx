@@ -11,10 +11,9 @@ export default function HomePage() {
 
   return (
     <div className="px-4 pt-6 pb-4 space-y-6">
-      {/* Header */}
+      {/* Greeting */}
       <div>
-        <h1 className="text-2xl font-extrabold text-foreground">ExamForge 🎯</h1>
-        <p className="text-sm text-muted-foreground mt-0.5">AI-powered exam prep for JAMB, WAEC & NECO</p>
+        <p className="text-sm text-muted-foreground">AI-powered exam prep for JAMB, WAEC & NECO</p>
       </div>
 
       {/* Stats Row */}
