@@ -15,6 +15,7 @@ export default function BannerAd({ className = '' }: BannerAdProps) {
         {/* AdMob banner slot — replaced by native ad when wrapped */}
         <div
           id="admob-banner"
+          data-ad-unit-id={ADMOB_CONFIG.bannerAdUnitId}
           className="w-full h-[50px] bg-secondary/50 rounded flex items-center justify-center"
         >
           <span className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase">
