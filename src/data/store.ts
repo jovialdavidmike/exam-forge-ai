@@ -141,7 +141,37 @@ export function markDailyComplete(): void {
   const today = new Date().toISOString().split('T')[0];
   if (!stats.dailyCompleted.includes(today)) {
     stats.dailyCompleted.push(today);
-    stats.points += 50; // Bonus for completing daily
+    stats.points += 50;
     saveStats(stats);
   }
+}
+
+// Bookmarks
+const BOOKMARKS_KEY = 'examforge_bookmarks';
+
+export function getBookmarks(): string[] {
+  try {
+    const raw = localStorage.getItem(BOOKMARKS_KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+
+export function toggleBookmark(questionId: string): boolean {
+  const bookmarks = getBookmarks();
+  const idx = bookmarks.indexOf(questionId);
+  if (idx >= 0) {
+    bookmarks.splice(idx, 1);
+  } else {
+    bookmarks.push(questionId);
+  }
+  localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(bookmarks));
+  return idx < 0; // returns true if added
+}
+
+export function removeBookmark(questionId: string): void {
+  const bookmarks = getBookmarks();
+  const filtered = bookmarks.filter(id => id !== questionId);
+  localStorage.setItem(BOOKMARKS_KEY, JSON.stringify(filtered));
 }

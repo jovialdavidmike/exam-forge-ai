@@ -9,6 +9,8 @@ import PracticePage from "./pages/PracticePage";
 import TopicsPage from "./pages/TopicsPage";
 import ProgressPage from "./pages/ProgressPage";
 import ProfilePage from "./pages/ProfilePage";
+import FormulaSheetPage from "./pages/FormulaSheetPage";
+import BookmarksPage from "./pages/BookmarksPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +28,8 @@ const App = () => (
             <Route path="/topics" element={<TopicsPage />} />
             <Route path="/progress" element={<ProgressPage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/formulas" element={<FormulaSheetPage />} />
+            <Route path="/bookmarks" element={<BookmarksPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MobileLayout>

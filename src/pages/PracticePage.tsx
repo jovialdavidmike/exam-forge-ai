@@ -98,6 +98,12 @@ export default function PracticePage() {
           <p className="text-xs text-muted-foreground font-medium">{subjectName}</p>
           <p className="text-[10px] text-muted-foreground">{current.topic} · {current.difficulty}</p>
         </div>
+        <button
+          onClick={() => { toggleBookmark(current.id); setBookmarks(getBookmarks()); }}
+          className="p-1.5"
+        >
+          <Bookmark className={`w-4.5 h-4.5 ${bookmarks.includes(current.id) ? 'fill-primary text-primary' : 'text-muted-foreground'}`} />
+        </button>
         <span className="text-xs font-bold text-foreground bg-secondary px-2.5 py-1 rounded-full">
           {currentIdx + 1}/{questionSet.length}
         </span>
