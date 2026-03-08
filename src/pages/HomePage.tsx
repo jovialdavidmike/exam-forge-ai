@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { Flame, Zap, Target, ChevronRight, Sparkles, CalendarDays, User } from 'lucide-react';
 import { subjects } from '@/data/questions';
 import { getStats, getSubjectAccuracy } from '@/data/store';
+import BannerAd from '@/components/ads/BannerAd';
 
 export default function HomePage() {
   const navigate = useNavigate();
