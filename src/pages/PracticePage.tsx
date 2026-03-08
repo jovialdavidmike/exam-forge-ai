@@ -26,6 +26,7 @@ export default function PracticePage() {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
+  const [bookmarks, setBookmarks] = useState<string[]>(getBookmarks());
 
   const current = questionSet[currentIdx];
   const answered = selectedOption !== null;
