@@ -28,6 +28,7 @@ export default function PracticePage() {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [bookmarks, setBookmarks] = useState<string[]>(getBookmarks());
+  const { incrementQuestions, interstitialShownThisSession, setShowInterstitial, bonusQuestions } = useAds();
 
   const current = questionSet[currentIdx];
   const answered = selectedOption !== null;
