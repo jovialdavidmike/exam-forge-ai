@@ -13,6 +13,7 @@ import FormulaSheetPage from "./pages/FormulaSheetPage";
 import BookmarksPage from "./pages/BookmarksPage";
 import AITutorPage from "./pages/AITutorPage";
 import StudyPlanPage from "./pages/StudyPlanPage";
+import VideosPage from "./pages/VideosPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/bookmarks" element={<BookmarksPage />} />
             <Route path="/ai-tutor" element={<AITutorPage />} />
             <Route path="/study-plan" element={<StudyPlanPage />} />
+            <Route path="/videos" element={<VideosPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </MobileLayout>

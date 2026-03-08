@@ -64,18 +64,23 @@ export default function MobileLayout({ children }: { children: ReactNode }) {
               })}
             </div>
 
-            {/* Videos Coming Soon */}
-            <div className="mx-2 mt-4 p-4 rounded-xl bg-muted/60 border border-border">
-              <div className="flex items-center gap-2 mb-1.5">
-                <Video className="w-4.5 h-4.5 text-primary" />
-                <span className="text-sm font-bold text-foreground">Video Lessons</span>
-              </div>
-              <p className="text-xs text-muted-foreground leading-relaxed">
-                Learn with short explainer videos for every topic. Coming soon!
-              </p>
-              <span className="inline-block mt-2 text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
-                Coming Soon
-              </span>
+            {/* Videos */}
+            <div className="mx-2 mt-4">
+              <button
+                onClick={() => { navigate('/videos'); setMenuOpen(false); }}
+                className="w-full p-4 rounded-xl bg-muted/60 border border-border text-left hover:bg-muted transition-colors"
+              >
+                <div className="flex items-center gap-2 mb-1.5">
+                  <Video className="w-4.5 h-4.5 text-primary" />
+                  <span className="text-sm font-bold text-foreground">Video Lessons</span>
+                  <span className="ml-auto text-[10px] font-bold uppercase tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">
+                    Coming Soon
+                  </span>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  Short explainer videos for every topic
+                </p>
+              </button>
             </div>
           </SheetContent>
         </Sheet>
