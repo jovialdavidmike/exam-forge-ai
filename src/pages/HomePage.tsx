@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Flame, Zap, Target, ChevronRight } from 'lucide-react';
+import { Flame, Zap, Target, ChevronRight, Sparkles, CalendarDays, User } from 'lucide-react';
 import { subjects } from '@/data/questions';
 import { getStats, getSubjectAccuracy } from '@/data/store';
 
