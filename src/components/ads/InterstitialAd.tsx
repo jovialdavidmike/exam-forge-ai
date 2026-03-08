@@ -1,4 +1,5 @@
 import { useAds } from '@/contexts/AdContext';
+import { ADMOB_CONFIG } from '@/config/admob';
 import { X } from 'lucide-react';
 
 export default function InterstitialAd() {
@@ -23,7 +24,7 @@ export default function InterstitialAd() {
           <p className="text-xs text-muted-foreground">
             This ad helps keep ExamForge free for all students
           </p>
-          <div id="admob-interstitial" className="w-full h-32 bg-muted rounded-lg mt-4 flex items-center justify-center">
+          <div id="admob-interstitial" data-ad-unit-id={ADMOB_CONFIG.interstitialAdUnitId} className="w-full h-32 bg-muted rounded-lg mt-4 flex items-center justify-center">
             <span className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">Ad Space</span>
           </div>
         </div>

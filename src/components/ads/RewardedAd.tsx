@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useAds } from '@/contexts/AdContext';
+import { ADMOB_CONFIG } from '@/config/admob';
 import { Gift, Play, X, CheckCircle } from 'lucide-react';
 
 export default function RewardedAd() {
@@ -46,7 +47,7 @@ export default function RewardedAd() {
           </div>
         ) : watching ? (
           <div className="p-8 text-center">
-            <div id="admob-rewarded" className="w-full aspect-video bg-secondary/30 rounded-xl flex flex-col items-center justify-center mb-4">
+            <div id="admob-rewarded" data-ad-unit-id={ADMOB_CONFIG.rewardedAdUnitId} className="w-full aspect-video bg-secondary/30 rounded-xl flex flex-col items-center justify-center mb-4">
               <div className="w-10 h-10 rounded-full border-4 border-primary border-t-transparent animate-spin mb-3" />
               <span className="text-xs text-muted-foreground">Playing ad...</span>
             </div>
