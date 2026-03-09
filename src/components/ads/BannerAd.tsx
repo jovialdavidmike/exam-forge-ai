@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useAds } from '@/contexts/AdContext';
-import { isMedianApp, enableBannerAd, disableBannerAd } from '@/lib/median';
 
 interface BannerAdProps {
   className?: string;
@@ -8,34 +7,32 @@ interface BannerAdProps {
 
 export default function BannerAd({ className = '' }: BannerAdProps) {
   const { isPremium } = useAds();
+  const adRef = useRef<HTMLDivElement>(null);
+  const adPushed = useRef(false);
 
   useEffect(() => {
-    if (isPremium) {
-      disableBannerAd();
-    } else {
-      enableBannerAd();
-    }
+    if (isPremium || adPushed.current) return;
 
-    return () => {
-      disableBannerAd();
-    };
+    try {
+      ((window as any).adsbygoogle = (window as any).adsbygoogle || []).push({});
+      adPushed.current = true;
+    } catch (e) {
+      console.warn('AdSense push failed:', e);
+    }
   }, [isPremium]);
 
-  // In the native app, Median renders the banner ad natively at the bottom.
-  // We only show a placeholder in the web preview (non-Median environment).
   if (isPremium) return null;
-  if (isMedianApp()) return null; // Median handles banner rendering natively
 
   return (
-    <div className={`w-full ${className}`}>
-      <div className="bg-muted/50 border border-border rounded-lg px-3 py-2 text-center">
-        <div className="w-full h-[50px] bg-secondary/50 rounded flex items-center justify-center">
-          <span className="text-[10px] text-muted-foreground font-medium tracking-wide uppercase">
-            Ad Space (native only)
-          </span>
-        </div>
-        <p className="text-[8px] text-muted-foreground mt-1">Advertisement</p>
-      </div>
+    <div className={`w-full ${className}`} ref={adRef}>
+      <ins
+        className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-4174682271524746"
+        data-ad-slot="YOUR_AD_SLOT_ID"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
     </div>
   );
 }
