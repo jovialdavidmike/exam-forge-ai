@@ -58,6 +58,17 @@ export function AdProvider({ children }: { children: ReactNode }) {
   const [unlockedTopics, setUnlockedTopics] = useState<string[]>(getStoredUnlocked());
   const [showUnlockAd, setShowUnlockAd] = useState(false);
   const [pendingUnlockTopicId, setPendingUnlockTopicId] = useState<string | null>(null);
+  const [bonusAIGenerations, setBonusAIGenerations] = useState(0);
+
+  const addBonusAIGenerations = useCallback((n: number) => {
+    setBonusAIGenerations(prev => prev + n);
+  }, []);
+
+  const useBonusAIGeneration = useCallback(() => {
+    if (bonusAIGenerations <= 0) return false;
+    setBonusAIGenerations(prev => prev - 1);
+    return true;
+  }, [bonusAIGenerations]);
 
   const incrementQuestions = useCallback(() => {
     setQuestionsAnswered(prev => {
