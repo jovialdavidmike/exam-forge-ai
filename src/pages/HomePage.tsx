@@ -109,6 +109,13 @@ export default function HomePage() {
           })}
         </div>
       </div>
+      {/* Reward Button */}
+      <RewardButton
+        label="Unlock More Questions"
+        icon={<Gift className="w-4 h-4" />}
+        onReward={() => addBonusQuestions(5)}
+      />
+
       {/* Ad Banner */}
       <BannerAd />
     </div>

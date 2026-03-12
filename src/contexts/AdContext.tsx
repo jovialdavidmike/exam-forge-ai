@@ -118,6 +118,7 @@ export function AdProvider({ children }: { children: ReactNode }) {
       unlockedTopics, unlockTopic, isTopicUnlocked,
       showUnlockAd, setShowUnlockAd,
       pendingUnlockTopicId, setPendingUnlockTopicId,
+      bonusAIGenerations, addBonusAIGenerations, useBonusAIGeneration,
     }}>
       {children}
     </AdContext.Provider>
