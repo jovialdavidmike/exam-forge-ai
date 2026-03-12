@@ -9,6 +9,7 @@ import { useAds } from '@/contexts/AdContext';
 export default function HomePage() {
   const navigate = useNavigate();
   const stats = getStats();
+  const { addBonusQuestions } = useAds();
   const today = new Date().toISOString().split('T')[0];
   const dailyDone = stats.dailyCompleted.includes(today);
 
