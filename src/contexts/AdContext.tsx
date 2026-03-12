@@ -12,6 +12,10 @@ interface AdContextType {
   bonusQuestions: number;
   addBonusQuestions: (n: number) => void;
   useBonusQuestion: () => void;
+  // AI generations
+  bonusAIGenerations: number;
+  addBonusAIGenerations: (n: number) => void;
+  useBonusAIGeneration: () => boolean;
   // Interstitial
   interstitialShownThisSession: boolean;
   markInterstitialShown: () => void;
