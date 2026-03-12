@@ -216,10 +216,7 @@ export default function AITutorPage() {
         <RewardButton
           label="Generate More AI Questions"
           icon={<Wand2 className="w-4 h-4" />}
-          onReward={() => {
-            const { addBonusAIGenerations } = useAds();
-            addBonusAIGenerations(3);
-          }}
+          onReward={() => addBonusAIGenerations(3)}
         />
       </div>
 
