@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
+import { Send, Bot, User, Sparkles, Loader2, Wand2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import BannerAd from '@/components/ads/BannerAd';
+import RewardButton from '@/components/ads/RewardButton';
+import { useAds } from '@/contexts/AdContext';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
