@@ -1,12 +1,15 @@
 import { useNavigate } from 'react-router-dom';
-import { Flame, Zap, Target, ChevronRight, Sparkles, CalendarDays, User } from 'lucide-react';
+import { Flame, Zap, Target, ChevronRight, Sparkles, CalendarDays, User, Gift } from 'lucide-react';
 import { subjects } from '@/data/questions';
 import { getStats, getSubjectAccuracy } from '@/data/store';
 import BannerAd from '@/components/ads/BannerAd';
+import RewardButton from '@/components/ads/RewardButton';
+import { useAds } from '@/contexts/AdContext';
 
 export default function HomePage() {
   const navigate = useNavigate();
   const stats = getStats();
+  const { addBonusQuestions } = useAds();
   const today = new Date().toISOString().split('T')[0];
   const dailyDone = stats.dailyCompleted.includes(today);
 
@@ -106,6 +109,13 @@ export default function HomePage() {
           })}
         </div>
       </div>
+      {/* Reward Button */}
+      <RewardButton
+        label="Unlock More Questions"
+        icon={<Gift className="w-4 h-4" />}
+        onReward={() => addBonusQuestions(5)}
+      />
+
       {/* Ad Banner */}
       <BannerAd />
     </div>

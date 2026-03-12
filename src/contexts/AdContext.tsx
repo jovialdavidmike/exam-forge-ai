@@ -12,6 +12,10 @@ interface AdContextType {
   bonusQuestions: number;
   addBonusQuestions: (n: number) => void;
   useBonusQuestion: () => void;
+  // AI generations
+  bonusAIGenerations: number;
+  addBonusAIGenerations: (n: number) => void;
+  useBonusAIGeneration: () => boolean;
   // Interstitial
   interstitialShownThisSession: boolean;
   markInterstitialShown: () => void;
@@ -54,6 +58,17 @@ export function AdProvider({ children }: { children: ReactNode }) {
   const [unlockedTopics, setUnlockedTopics] = useState<string[]>(getStoredUnlocked());
   const [showUnlockAd, setShowUnlockAd] = useState(false);
   const [pendingUnlockTopicId, setPendingUnlockTopicId] = useState<string | null>(null);
+  const [bonusAIGenerations, setBonusAIGenerations] = useState(0);
+
+  const addBonusAIGenerations = useCallback((n: number) => {
+    setBonusAIGenerations(prev => prev + n);
+  }, []);
+
+  const useBonusAIGeneration = useCallback(() => {
+    if (bonusAIGenerations <= 0) return false;
+    setBonusAIGenerations(prev => prev - 1);
+    return true;
+  }, [bonusAIGenerations]);
 
   const incrementQuestions = useCallback(() => {
     setQuestionsAnswered(prev => {
@@ -103,6 +118,7 @@ export function AdProvider({ children }: { children: ReactNode }) {
       unlockedTopics, unlockTopic, isTopicUnlocked,
       showUnlockAd, setShowUnlockAd,
       pendingUnlockTopicId, setPendingUnlockTopicId,
+      bonusAIGenerations, addBonusAIGenerations, useBonusAIGeneration,
     }}>
       {children}
     </AdContext.Provider>

@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import { Send, Bot, User, Sparkles, Loader2 } from 'lucide-react';
+import { Send, Bot, User, Sparkles, Loader2, Wand2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import BannerAd from '@/components/ads/BannerAd';
+import RewardButton from '@/components/ads/RewardButton';
+import { useAds } from '@/contexts/AdContext';
 
 type Msg = { role: 'user' | 'assistant'; content: string };
 
@@ -19,6 +21,7 @@ export default function AITutorPage() {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { addBonusAIGenerations } = useAds();
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -206,6 +209,15 @@ export default function AITutorPage() {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Reward Button */}
+      <div className="px-4 pt-2">
+        <RewardButton
+          label="Generate More AI Questions"
+          icon={<Wand2 className="w-4 h-4" />}
+          onReward={() => addBonusAIGenerations(3)}
+        />
       </div>
 
       {/* Ad Banner */}
