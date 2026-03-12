@@ -68,7 +68,37 @@ export default function MobileLayout({ children }: { children: ReactNode }) {
               })}
             </div>
 
-            {/* Dark Mode Toggle */}
+            {/* Auth Actions */}
+            <div className="mx-2 mt-2 space-y-1">
+              {user ? (
+                <>
+                  <button
+                    onClick={() => { navigate('/dashboard'); setMenuOpen(false); }}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-foreground hover:bg-muted transition-colors"
+                  >
+                    <LayoutDashboard className="w-4.5 h-4.5 text-primary" />
+                    Dashboard
+                  </button>
+                  <button
+                    onClick={async () => { await signOut(); setMenuOpen(false); navigate('/'); }}
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-destructive hover:bg-destructive/10 transition-colors"
+                  >
+                    <LogOut className="w-4.5 h-4.5" />
+                    Log Out
+                  </button>
+                </>
+              ) : (
+                <button
+                  onClick={() => { navigate('/login'); setMenuOpen(false); }}
+                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-primary hover:bg-primary/10 transition-colors"
+                >
+                  <LogIn className="w-4.5 h-4.5" />
+                  Log In / Sign Up
+                </button>
+              )}
+            </div>
+
+
             <div className="mx-2 mt-4">
               <button
                 onClick={toggle}
