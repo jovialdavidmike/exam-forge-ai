@@ -5,6 +5,7 @@ import { getStats, getSubjectAccuracy } from '@/data/store';
 import BannerAd from '@/components/ads/BannerAd';
 import RewardButton from '@/components/ads/RewardButton';
 import { useAds } from '@/contexts/AdContext';
+import AnnouncementBanner from '@/components/AnnouncementBanner';
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -40,6 +41,9 @@ export default function HomePage() {
           <p className="text-[10px] text-muted-foreground font-medium">Accuracy</p>
         </div>
       </div>
+
+      {/* Announcement */}
+      <AnnouncementBanner />
 
       {/* Daily Practice CTA */}
       <button
