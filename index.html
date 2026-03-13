@@ -48,50 +48,5 @@
     })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))
     </script>
 
-    <!-- Monetag: Onclick (Popunder) - Throttled to max 5 per 2 minutes -->
-    <script>
-    (function(){
-      var MAX_CLICKS = 5;
-      var WINDOW_MS = 120000; // 2 minutes
-      var KEY = '_monetag_onclick_ts';
-      function getTimestamps(){
-        try { return JSON.parse(sessionStorage.getItem(KEY)||'[]'); } catch(e){ return []; }
-      }
-      function canShow(){
-        var now = Date.now();
-        var ts = getTimestamps().filter(function(t){ return now - t < WINDOW_MS; });
-        sessionStorage.setItem(KEY, JSON.stringify(ts));
-        return ts.length < MAX_CLICKS;
-      }
-      function recordShow(){
-        var ts = getTimestamps();
-        ts.push(Date.now());
-        sessionStorage.setItem(KEY, JSON.stringify(ts));
-      }
-      function loadOnclick(){
-        var s = document.createElement('script');
-        s.dataset.zone='10708789';
-        s.src='https://al5sm.com/tag.min.js';
-        document.body.appendChild(s);
-      }
-      document.addEventListener('click', function handler(){
-        if(canShow()){
-          recordShow();
-          loadOnclick();
-        }
-      }, {once: true});
-      // Re-attach listener after each use
-      var reattach = function(){
-        document.addEventListener('click', function(){
-          if(canShow()){
-            recordShow();
-            loadOnclick();
-          }
-          setTimeout(reattach, 100);
-        }, {once: true});
-      };
-      reattach();
-    })();
-    </script>
   </body>
 </html>
