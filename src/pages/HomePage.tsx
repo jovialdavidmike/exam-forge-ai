@@ -5,6 +5,7 @@ import { getStats, getSubjectAccuracy } from '@/data/store';
 import BannerAd from '@/components/ads/BannerAd';
 import RewardButton from '@/components/ads/RewardButton';
 import { useAds } from '@/contexts/AdContext';
+import AnnouncementBanner from '@/components/AnnouncementBanner';
 
 export default function HomePage() {
   const navigate = useNavigate();
