@@ -42,6 +42,9 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Announcement */}
+      <AnnouncementBanner />
+
       {/* Daily Practice CTA */}
       <button
         onClick={() => navigate('/practice?daily=true')}

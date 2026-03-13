@@ -24,6 +24,8 @@ const menuItems = [
   { path: '/study-plan', label: 'Study Plan', icon: CalendarDays },
   { path: '/bookmarks', label: 'Bookmarks', icon: Bookmark },
   { path: '/formulas', label: 'Formula Sheet', icon: FlaskConical },
+  { path: '/leaderboard', label: 'Leaderboard', icon: Trophy },
+  { path: '/about', label: 'About', icon: Info },
 ];
 
 export default function MobileLayout({ children }: { children: ReactNode }) {
