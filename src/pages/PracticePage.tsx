@@ -8,7 +8,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 
 export default function PracticePage() {
-  const [searchParams] = useSearchParams();
+  const { user, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const subjectId = searchParams.get('subject');
   const isDaily = searchParams.get('daily') === 'true';
