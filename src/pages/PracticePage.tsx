@@ -201,7 +201,7 @@ export default function PracticePage() {
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? <CheckCircle className="w-4 h-4 text-success" /> : <XCircle className="w-4 h-4 text-destructive" />}
             <span className={`text-sm font-bold ${isCorrect ? 'text-success' : 'text-destructive'}`}>
-              {isCorrect ? 'Correct! +10 pts' : 'Incorrect'}
+              {isCorrect ? 'Correct! +3 pts' : 'Incorrect'}
             </span>
           </div>
           <p className="text-sm text-foreground whitespace-pre-line leading-relaxed">{current.explanation}</p>
