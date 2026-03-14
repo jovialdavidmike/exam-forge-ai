@@ -8,6 +8,8 @@ interface Profile {
   username: string;
   points: number;
   quizzes_completed: number;
+  questions_answered: number;
+  correct_answers: number;
 }
 
 interface AuthContextType {

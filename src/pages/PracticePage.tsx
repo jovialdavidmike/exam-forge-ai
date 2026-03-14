@@ -4,9 +4,12 @@ import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock } from 'l
 import { questions as allQuestions, subjects } from '@/data/questions';
 import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 import { useAds } from '@/contexts/AdContext';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 
 export default function PracticePage() {
   const [searchParams] = useSearchParams();
+  const { user, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const subjectId = searchParams.get('subject');
   const isDaily = searchParams.get('daily') === 'true';
@@ -43,14 +46,35 @@ export default function PracticePage() {
 
   const subjectName = subjectId ? subjects.find(s => s.id === subjectId)?.name : isDaily ? 'Daily Practice' : 'All Subjects';
 
-  const handleSelect = useCallback((idx: number) => {
+  const handleSelect = useCallback(async (idx: number) => {
     if (answered) return;
     setSelectedOption(idx);
     const correct = idx === current.correctIndex;
     if (correct) setScore(prev => prev + 1);
     recordAttempt(current.id, current.subject, current.topic, correct);
     incrementQuestions();
-  }, [answered, current, incrementQuestions]);
+
+    // Sync to Supabase
+    if (user) {
+      const { data: current_profile } = await supabase
+        .from('profiles')
+        .select('questions_answered, correct_answers, points')
+        .eq('user_id', user.id)
+        .single();
+
+      if (current_profile) {
+        await supabase
+          .from('profiles')
+          .update({
+            questions_answered: current_profile.questions_answered + 1,
+            correct_answers: current_profile.correct_answers + (correct ? 1 : 0),
+            points: current_profile.points + (correct ? 3 : 0),
+          })
+          .eq('user_id', user.id);
+        refreshProfile();
+      }
+    }
+  }, [answered, current, incrementQuestions, user, refreshProfile]);
 
   const handleNext = useCallback(() => {
     if (currentIdx + 1 >= questionSet.length) {
@@ -177,7 +201,7 @@ export default function PracticePage() {
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? <CheckCircle className="w-4 h-4 text-success" /> : <XCircle className="w-4 h-4 text-destructive" />}
             <span className={`text-sm font-bold ${isCorrect ? 'text-success' : 'text-destructive'}`}>
-              {isCorrect ? 'Correct! +10 pts' : 'Incorrect'}
+              {isCorrect ? 'Correct! +3 pts' : 'Incorrect'}
             </span>
           </div>
           <p className="text-sm text-foreground whitespace-pre-line leading-relaxed">{current.explanation}</p>

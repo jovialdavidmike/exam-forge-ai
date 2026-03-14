@@ -6,7 +6,8 @@ import { Trophy, Medal } from 'lucide-react';
 interface LeaderboardEntry {
   username: string;
   points: number;
-  quizzes_completed: number;
+  questions_answered: number;
+  correct_answers: number;
   user_id: string;
 }
 
@@ -16,16 +17,16 @@ export default function LeaderboardPage() {
   const { user } = useAuth();
 
   useEffect(() => {
-    const fetch = async () => {
+    const load = async () => {
       const { data } = await supabase
         .from('profiles')
-        .select('username, points, quizzes_completed, user_id')
+        .select('username, points, questions_answered, correct_answers, user_id')
         .order('points', { ascending: false })
         .limit(50);
       if (data) setEntries(data as LeaderboardEntry[]);
       setLoading(false);
     };
-    fetch();
+    load();
   }, []);
 
   const medalColors = ['text-[hsl(var(--badge-gold))]', 'text-[hsl(var(--badge-silver))]', 'text-[hsl(var(--badge-bronze))]'];
@@ -64,7 +65,9 @@ export default function LeaderboardPage() {
                   <p className="font-semibold text-sm text-foreground truncate">
                     {entry.username} {isMe && <span className="text-primary">(You)</span>}
                   </p>
-                  <p className="text-xs text-muted-foreground">{entry.quizzes_completed} quizzes</p>
+                  <p className="text-xs text-muted-foreground">
+                    {entry.questions_answered} answered · {entry.correct_answers} correct
+                  </p>
                 </div>
                 <p className="font-bold text-sm text-foreground">{entry.points} pts</p>
               </div>

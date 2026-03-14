@@ -43,27 +43,33 @@ export type Database = {
       }
       profiles: {
         Row: {
+          correct_answers: number
           created_at: string
           id: string
           points: number
+          questions_answered: number
           quizzes_completed: number
           updated_at: string
           user_id: string
           username: string
         }
         Insert: {
+          correct_answers?: number
           created_at?: string
           id?: string
           points?: number
+          questions_answered?: number
           quizzes_completed?: number
           updated_at?: string
           user_id: string
           username: string
         }
         Update: {
+          correct_answers?: number
           created_at?: string
           id?: string
           points?: number
+          questions_answered?: number
           quizzes_completed?: number
           updated_at?: string
           user_id?: string
