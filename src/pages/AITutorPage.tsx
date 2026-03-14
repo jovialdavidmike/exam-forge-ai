@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, Bot, User, Sparkles, Loader2, Wand2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import BannerAd from '@/components/ads/BannerAd';
 import RewardButton from '@/components/ads/RewardButton';
 import { useAds } from '@/contexts/AdContext';
