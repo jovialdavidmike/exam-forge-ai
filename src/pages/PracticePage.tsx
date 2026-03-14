@@ -56,11 +56,6 @@ export default function PracticePage() {
 
     // Sync to Supabase
     if (user) {
-      const updates: Record<string, unknown> = {
-        questions_answered: (await supabase.from('profiles').select('questions_answered, correct_answers, points').eq('user_id', user.id).single()).data
-          ? undefined : undefined,
-      };
-      // Use rpc-style increment via raw update
       const { data: current_profile } = await supabase
         .from('profiles')
         .select('questions_answered, correct_answers, points')
