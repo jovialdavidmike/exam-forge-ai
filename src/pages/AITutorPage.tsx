@@ -1,6 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import { Send, Bot, User, Sparkles, Loader2, Wand2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import BannerAd from '@/components/ads/BannerAd';
 import RewardButton from '@/components/ads/RewardButton';
 import { useAds } from '@/contexts/AdContext';
@@ -185,7 +188,7 @@ export default function AITutorPage() {
             }`}>
               {msg.role === 'assistant' ? (
                 <div className="prose prose-sm dark:prose-invert max-w-none [&>p]:my-1 [&>ul]:my-1 [&>ol]:my-1 [&>h1]:text-base [&>h2]:text-sm [&>h3]:text-sm">
-                  <ReactMarkdown>{msg.content}</ReactMarkdown>
+                  <ReactMarkdown remarkPlugins={[remarkMath]} rehypePlugins={[rehypeKatex]}>{msg.content}</ReactMarkdown>
                 </div>
               ) : (
                 <p>{msg.content}</p>
