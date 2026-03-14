@@ -45,14 +45,40 @@ export default function PracticePage() {
 
   const subjectName = subjectId ? subjects.find(s => s.id === subjectId)?.name : isDaily ? 'Daily Practice' : 'All Subjects';
 
-  const handleSelect = useCallback((idx: number) => {
+  const handleSelect = useCallback(async (idx: number) => {
     if (answered) return;
     setSelectedOption(idx);
     const correct = idx === current.correctIndex;
     if (correct) setScore(prev => prev + 1);
     recordAttempt(current.id, current.subject, current.topic, correct);
     incrementQuestions();
-  }, [answered, current, incrementQuestions]);
+
+    // Sync to Supabase
+    if (user) {
+      const updates: Record<string, unknown> = {
+        questions_answered: (await supabase.from('profiles').select('questions_answered, correct_answers, points').eq('user_id', user.id).single()).data
+          ? undefined : undefined,
+      };
+      // Use rpc-style increment via raw update
+      const { data: current_profile } = await supabase
+        .from('profiles')
+        .select('questions_answered, correct_answers, points')
+        .eq('user_id', user.id)
+        .single();
+
+      if (current_profile) {
+        await supabase
+          .from('profiles')
+          .update({
+            questions_answered: current_profile.questions_answered + 1,
+            correct_answers: current_profile.correct_answers + (correct ? 1 : 0),
+            points: current_profile.points + (correct ? 3 : 0),
+          })
+          .eq('user_id', user.id);
+        refreshProfile();
+      }
+    }
+  }, [answered, current, incrementQuestions, user, refreshProfile]);
 
   const handleNext = useCallback(() => {
     if (currentIdx + 1 >= questionSet.length) {
