@@ -72,7 +72,7 @@ export function recordAttempt(questionId: string, subject: string, topic: string
   stats.totalAttempted++;
   if (correct) {
     stats.totalCorrect++;
-    stats.points += 10;
+    stats.points += 3;
   }
 
   // Streak logic

@@ -4,6 +4,8 @@ import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock } from 'l
 import { questions as allQuestions, subjects } from '@/data/questions';
 import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 import { useAds } from '@/contexts/AdContext';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 
 export default function PracticePage() {
   const [searchParams] = useSearchParams();
