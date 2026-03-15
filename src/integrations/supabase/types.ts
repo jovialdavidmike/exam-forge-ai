@@ -82,7 +82,16 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      update_user_stats: {
+        Args: {
+          p_correct_to_add: number
+          p_points_to_add: number
+          p_questions_to_add: number
+          p_quizzes_to_add?: number
+          p_user_id: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never
