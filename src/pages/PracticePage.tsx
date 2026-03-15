@@ -54,25 +54,16 @@ export default function PracticePage() {
     recordAttempt(current.id, current.subject, current.topic, correct);
     incrementQuestions();
 
-    // Sync to Supabase
+    // Sync to Supabase via secure RPC
     if (user) {
-      const { data: current_profile } = await supabase
-        .from('profiles')
-        .select('questions_answered, correct_answers, points')
-        .eq('user_id', user.id)
-        .single();
-
-      if (current_profile) {
-        await supabase
-          .from('profiles')
-          .update({
-            questions_answered: current_profile.questions_answered + 1,
-            correct_answers: current_profile.correct_answers + (correct ? 1 : 0),
-            points: current_profile.points + (correct ? 3 : 0),
-          })
-          .eq('user_id', user.id);
-        refreshProfile();
-      }
+      await supabase.rpc('update_user_stats', {
+        p_user_id: user.id,
+        p_points_to_add: correct ? 3 : 0,
+        p_questions_to_add: 1,
+        p_correct_to_add: correct ? 1 : 0,
+        p_quizzes_to_add: 0,
+      });
+      refreshProfile();
     }
   }, [answered, current, incrementQuestions, user, refreshProfile]);
 
