@@ -25,7 +25,7 @@ const menuItems = [
   { path: '/bookmarks', label: 'Bookmarks', icon: Bookmark },
   { path: '/formulas', label: 'Formula Sheet', icon: FlaskConical },
   { path: '/leaderboard', label: 'Leaderboard', icon: Trophy },
-  { path: '/install', label: 'Install App', icon: Download },
+  
   { path: '/about', label: 'About', icon: Info },
 ];
 
