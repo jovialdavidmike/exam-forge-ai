@@ -1,0 +1,41 @@
+{
+  "subject": "english",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Parts of Speech",
+      "subtopics": ["Nouns (Types & Functions)", "Pronouns", "Verbs (Types, Tenses, Moods)", "Adjectives", "Adverbs", "Prepositions", "Conjunctions", "Interjections"],
+      "key_concepts": ["Subject-Verb Agreement", "Transitive & Intransitive Verbs", "Relative Pronouns"]
+    },
+    {
+      "title": "Tenses & Verb Usage",
+      "subtopics": ["Simple Tenses", "Continuous Tenses", "Perfect Tenses", "Perfect Continuous Tenses", "Active & Passive Voice", "Reported Speech", "Conditional Sentences"],
+      "key_concepts": ["Sequence of Tenses", "Modal Verbs", "Phrasal Verbs"]
+    },
+    {
+      "title": "Comprehension & Summary",
+      "subtopics": ["Reading Comprehension Strategies", "Main Idea Identification", "Inference & Deduction", "Summary Writing", "Vocabulary in Context", "Author's Purpose & Tone"],
+      "key_concepts": ["Skimming & Scanning", "Context Clues", "Paraphrasing"]
+    },
+    {
+      "title": "Figures of Speech & Literary Devices",
+      "subtopics": ["Simile", "Metaphor", "Personification", "Hyperbole", "Irony", "Onomatopoeia", "Alliteration", "Oxymoron", "Euphemism", "Synecdoche"],
+      "key_concepts": ["Identifying figures in passages", "Effect on meaning"]
+    },
+    {
+      "title": "Essay Writing",
+      "subtopics": ["Narrative Essays", "Descriptive Essays", "Argumentative Essays", "Expository Essays", "Letter Writing (Formal & Informal)", "Article Writing", "Speech Writing"],
+      "key_concepts": ["Introduction-Body-Conclusion", "Topic Sentences", "Linking Words", "Paragraph Development"]
+    },
+    {
+      "title": "Vocabulary Development",
+      "subtopics": ["Synonyms & Antonyms", "Homophones & Homonyms", "Idiomatic Expressions", "Phrasal Verbs", "Word Formation (Prefixes & Suffixes)", "Register & Diction", "Common JAMB Vocabulary"],
+      "key_concepts": ["Context-based meaning", "Denotation vs Connotation"]
+    },
+    {
+      "title": "Sentence Structure & Punctuation",
+      "subtopics": ["Simple, Compound & Complex Sentences", "Clauses & Phrases", "Common Grammatical Errors", "Punctuation Marks", "Concord", "Question Tags"],
+      "key_concepts": ["Run-on Sentences", "Dangling Modifiers", "Comma Splices"]
+    }
+  ]
+}

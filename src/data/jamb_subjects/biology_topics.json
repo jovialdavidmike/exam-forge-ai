@@ -1,0 +1,41 @@
+{
+  "subject": "biology",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Cell Biology",
+      "subtopics": ["Cell Structure & Organelles", "Plant vs Animal Cells", "Cell Membrane & Transport", "Osmosis & Diffusion", "Cell Division (Mitosis & Meiosis)", "Cell Specialization"],
+      "key_concepts": ["Endoplasmic Reticulum", "Golgi Apparatus", "Active Transport", "Plasmolysis"]
+    },
+    {
+      "title": "Genetics & Heredity",
+      "subtopics": ["Mendel's Laws", "Monohybrid & Dihybrid Crosses", "Dominance & Recessiveness", "Sex-Linked Inheritance", "Blood Group Inheritance", "Genetic Disorders", "Mutations", "Variation"],
+      "key_concepts": ["Genotype vs Phenotype", "Punnett Square", "Codominance", "Sickle Cell Trait"]
+    },
+    {
+      "title": "Ecology & Environment",
+      "subtopics": ["Ecosystem Components", "Food Chains & Webs", "Energy Flow", "Nutrient Cycling", "Population Ecology", "Succession", "Pollution & Conservation", "Biomes"],
+      "key_concepts": ["Trophic Levels", "Pyramid of Energy", "Carbon Cycle", "Nitrogen Cycle"]
+    },
+    {
+      "title": "Human Body Systems",
+      "subtopics": ["Circulatory System", "Respiratory System", "Digestive System", "Excretory System", "Nervous System", "Endocrine System", "Skeletal & Muscular System", "Immune System"],
+      "key_concepts": ["Homeostasis", "Reflex Arc", "Hormone Functions", "Blood Components"]
+    },
+    {
+      "title": "Reproduction & Growth",
+      "subtopics": ["Asexual Reproduction", "Sexual Reproduction in Plants", "Sexual Reproduction in Animals", "Fertilization & Implantation", "Embryonic Development", "Growth Patterns"],
+      "key_concepts": ["Pollination Types", "Germination", "Metamorphosis", "Secondary Growth"]
+    },
+    {
+      "title": "Photosynthesis & Respiration",
+      "subtopics": ["Light & Dark Reactions", "Factors Affecting Photosynthesis", "Aerobic Respiration", "Anaerobic Respiration", "ATP Production", "Fermentation"],
+      "key_concepts": ["6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂", "Glycolysis", "Krebs Cycle", "Electron Transport Chain"]
+    },
+    {
+      "title": "Evolution & Classification",
+      "subtopics": ["Evidence of Evolution", "Natural Selection", "Adaptation", "Taxonomy", "Five Kingdoms", "Binomial Nomenclature", "Characteristics of Living Things"],
+      "key_concepts": ["Darwin's Theory", "Lamarckism", "Homologous Structures", "Vestigial Organs"]
+    }
+  ]
+}
