@@ -25,7 +25,7 @@ import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import LeaderboardPage from "./pages/LeaderboardPage";
 import AboutPage from "./pages/AboutPage";
-import InstallPage from "./pages/InstallPage";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
