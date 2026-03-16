@@ -1,6 +1,6 @@
 import { ReactNode, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Home, BookOpen, Layers, BarChart3, Sparkles, Menu, User, CalendarDays, Bookmark, FlaskConical, Video, Sun, Moon, LogIn, LogOut, LayoutDashboard, Info, Trophy, Download } from 'lucide-react';
+import { Home, BookOpen, Layers, BarChart3, Sparkles, Menu, User, CalendarDays, Bookmark, FlaskConical, Video, Sun, Moon, LogIn, LogOut, LayoutDashboard, Info, Trophy } from 'lucide-react';
 import { useTheme } from '@/hooks/useTheme';
 import { useAuth } from '@/contexts/AuthContext';
 import {
