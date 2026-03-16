@@ -12,6 +12,8 @@ import RewardedAd from "./components/ads/RewardedAd";
 import UnlockContentAd from "./components/ads/UnlockContentAd";
 import HomePage from "./pages/HomePage";
 import PracticePage from "./pages/PracticePage";
+import DepartmentsPage from "./pages/DepartmentsPage";
+import SubjectsPage from "./pages/SubjectsPage";
 import TopicsPage from "./pages/TopicsPage";
 import ProgressPage from "./pages/ProgressPage";
 import ProfilePage from "./pages/ProfilePage";
