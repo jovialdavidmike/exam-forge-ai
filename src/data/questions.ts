@@ -366,7 +366,265 @@ export const topics: Topic[] = [
     examples: [
       'Synonyms of "happy": joyful, elated, ecstatic, content, delighted',
       'Idiom: "Burning the midnight oil" means studying late at night',
-      'Homophones: "write" and "right", "flour" and "flower"',
+   'Homophones: "write" and "right", "flour" and "flower"',
+    ],
+  },
+
+  // ── Government ────────────────────────────────────
+  {
+    id: 'gov-fundamentals',
+    subject: 'government',
+    name: 'Fundamentals of Government',
+    notes: 'Government refers to the institution through which a state exercises its authority.\n\nFunctions of Government:\n• Making laws (Legislature)\n• Implementing laws (Executive)\n• Interpreting laws (Judiciary)\n\nTypes of Government:\n• Democracy, Monarchy, Oligarchy, Theocracy, Autocracy\n\nArms of Government:\n• Legislature — makes laws\n• Executive — enforces laws\n• Judiciary — interprets laws',
+    examples: [
+      'Nigeria practices a presidential system of democracy',
+      'Separation of powers prevents one arm from becoming too powerful',
+    ],
+  },
+  {
+    id: 'gov-constitution',
+    subject: 'government',
+    name: 'The Nigerian Constitution',
+    notes: 'A constitution is the fundamental law of a state.\n\nFeatures of the 1999 Constitution:\n• Written and rigid\n• Federal system\n• Presidential system\n• Supremacy of the constitution\n• Fundamental Human Rights\n• Bicameral legislature (Senate + House of Reps)\n\nFundamental Human Rights: Right to life, dignity, personal liberty, fair hearing, expression, movement, association.',
+    examples: [
+      'Chapter IV of the 1999 Constitution lists fundamental human rights',
+      'Constitutional amendment requires 2/3 majority in the National Assembly',
+    ],
+  },
+  {
+    id: 'gov-democracy',
+    subject: 'government',
+    name: 'Democracy & Political Participation',
+    notes: 'Democracy is government of the people, by the people, for the people.\n\nTypes:\n• Direct democracy — citizens vote directly on laws\n• Representative/Indirect — citizens elect representatives\n\nFeatures:\n• Free and fair elections\n• Rule of law\n• Fundamental human rights\n• Independent judiciary\n• Multi-party system\n• Press freedom',
+    examples: [
+      'INEC conducts elections in Nigeria',
+      'Political parties include APC, PDP, LP',
+    ],
+  },
+  {
+    id: 'gov-federalism',
+    subject: 'government',
+    name: 'Federalism',
+    notes: 'Federalism is a system where power is shared between a central government and regional governments.\n\nFeatures:\n• Written and rigid constitution\n• Division of powers (Exclusive, Concurrent, Residual lists)\n• Supreme court to settle disputes\n• Two levels of government\n\nReasons for federalism in Nigeria:\n• Large size and diverse population\n• Fear of domination\n• Historical differences among regions',
+    examples: [
+      'Exclusive list: Defence, currency, foreign affairs (federal only)',
+      'Concurrent list: Education, health (both federal and state)',
+    ],
+  },
+  {
+    id: 'gov-intl-orgs',
+    subject: 'government',
+    name: 'International Organizations',
+    premium: true,
+    notes: 'International organizations promote cooperation among nations.\n\nKey organizations:\n• UN (1945) — maintains peace, 193 member states\n• AU (2001, formerly OAU) — African unity\n• ECOWAS (1975) — West African economic integration\n• Commonwealth — former British colonies\n\nUN Organs: General Assembly, Security Council, ICJ, Secretariat',
+    examples: [
+      'Nigeria is a founding member of ECOWAS',
+      'The UN Security Council has 5 permanent members with veto power',
+    ],
+  },
+
+  // ── Literature in English ─────────────────────────
+  {
+    id: 'lit-terms',
+    subject: 'literature',
+    name: 'Literary Terms & Devices',
+    notes: 'Literary devices are techniques authors use to convey meaning.\n\nKey terms:\n• Plot: Sequence of events in a story\n• Theme: Central idea or message\n• Setting: Time and place of the story\n• Characterization: How characters are developed\n• Conflict: Struggle between opposing forces\n• Irony: Gap between expectation and reality\n• Symbolism: Using objects to represent ideas\n• Foreshadowing: Hints about future events',
+    examples: [
+      'In "Things Fall Apart", the title symbolizes the collapse of Igbo society',
+      'Dramatic irony: The audience knows something the character doesn\'t',
+    ],
+  },
+  {
+    id: 'lit-poetry',
+    subject: 'literature',
+    name: 'Poetry',
+    notes: 'Poetry is a form of literature that uses aesthetic and rhythmic qualities of language.\n\nTypes:\n• Sonnet (14 lines), Ode, Elegy, Epic, Ballad, Lyric\n\nPoetic devices:\n• Rhyme, Rhythm, Alliteration, Assonance\n• Imagery (visual, auditory, tactile)\n• Metaphor, Simile, Personification\n• Enjambment, Caesura\n\nStanza forms: Couplet (2), Tercet (3), Quatrain (4), Sestet (6), Octave (8)',
+    examples: [
+      'A Shakespearean sonnet has 3 quatrains and a couplet (ABAB CDCD EFEF GG)',
+      'An elegy is a poem mourning the dead',
+    ],
+  },
+  {
+    id: 'lit-prose',
+    subject: 'literature',
+    name: 'Prose Fiction',
+    notes: 'Prose fiction includes novels, novellas, and short stories.\n\nElements:\n• Plot: Exposition → Rising action → Climax → Falling action → Resolution\n• Characters: Protagonist, Antagonist, Flat, Round, Dynamic, Static\n• Narrative techniques: First person, Third person, Omniscient\n• Themes: Common in African literature — colonialism, culture clash, corruption\n\nFlashback: Going back in time\nFlash-forward: Looking ahead in time',
+    examples: [
+      '"Things Fall Apart" by Chinua Achebe explores colonialism and cultural conflict',
+      'A round character is complex and undergoes development',
+    ],
+  },
+  {
+    id: 'lit-drama',
+    subject: 'literature',
+    name: 'Drama',
+    premium: true,
+    notes: 'Drama is literature meant to be performed on stage.\n\nTypes:\n• Tragedy: Ends in suffering/death of the hero\n• Comedy: Humorous, ends happily\n• Tragicomedy: Mix of both\n\nElements:\n• Acts and Scenes\n• Dialogue and Monologue\n• Soliloquy: Character speaks thoughts aloud alone\n• Aside: Character speaks to audience, other characters don\'t hear\n• Stage directions: Instructions for performance',
+    examples: [
+      '"The Lion and the Jewel" by Wole Soyinka is a comedy',
+      'Catharsis is the emotional release the audience feels in a tragedy',
+    ],
+  },
+  {
+    id: 'lit-african',
+    subject: 'literature',
+    name: 'African Literature',
+    premium: true,
+    notes: 'African literature reflects the continent\'s diverse cultures and histories.\n\nMajor themes:\n• Colonialism and its effects\n• Cultural conflict (tradition vs modernity)\n• Political corruption\n• Identity and alienation\n\nNotable authors:\n• Chinua Achebe — "Things Fall Apart"\n• Wole Soyinka — Nobel Prize winner\n• Ngũgĩ wa Thiong\'o — "Weep Not, Child"\n• Chimamanda Ngozi Adichie — "Purple Hibiscus"',
+    examples: [
+      'Achebe\'s "Things Fall Apart" is a response to Conrad\'s "Heart of Darkness"',
+      'Soyinka won the Nobel Prize in Literature in 1986',
+    ],
+  },
+
+  // ── Economics ──────────────────────────────────────
+  {
+    id: 'econ-basic',
+    subject: 'economics',
+    name: 'Basic Economic Concepts',
+    notes: 'Economics is the study of how scarce resources are allocated to satisfy unlimited wants.\n\nKey concepts:\n• Scarcity: Limited resources vs unlimited wants\n• Choice: Selecting among alternatives\n• Opportunity cost: The next best alternative forgone\n• Scale of preference: Ranking wants in order of priority\n\nFactors of production:\n• Land (natural resources) → Rent\n• Labour (human effort) → Wages\n• Capital (man-made resources) → Interest\n• Entrepreneurship → Profit',
+    examples: [
+      'If you choose to buy a phone instead of shoes, the shoes are your opportunity cost',
+      'A farmer\'s land is a factor of production rewarded with rent',
+    ],
+  },
+  {
+    id: 'econ-demand-supply',
+    subject: 'economics',
+    name: 'Demand & Supply',
+    notes: 'Demand is the quantity of a good consumers are willing and able to buy at various prices.\nSupply is the quantity producers are willing to sell.\n\nLaw of demand: As price increases, quantity demanded decreases\nLaw of supply: As price increases, quantity supplied increases\n\nEquilibrium: Where demand equals supply\n\nElasticity measures responsiveness:\n• Price elasticity of demand = % change in Qd / % change in P\n• Elastic (>1), Inelastic (<1), Unitary (=1)',
+    examples: [
+      'If price of rice rises from ₦500 to ₦700, people buy less rice',
+      'Equilibrium price is where the demand and supply curves intersect',
+    ],
+  },
+  {
+    id: 'econ-money',
+    subject: 'economics',
+    name: 'Money & Banking',
+    notes: 'Money is anything generally accepted as a medium of exchange.\n\nFunctions of money:\n• Medium of exchange\n• Store of value\n• Unit of account\n• Standard of deferred payment\n\nTypes of banks:\n• Central Bank (CBN) — controls money supply, banker to government\n• Commercial Banks — accept deposits, give loans\n• Development Banks — finance long-term projects\n\nMonetary policy tools: Interest rates, reserve requirements, open market operations',
+    examples: [
+      'The CBN sets the monetary policy rate (MPR) to control inflation',
+      'Commercial banks create credit through the multiplier effect',
+    ],
+  },
+  {
+    id: 'econ-national-income',
+    subject: 'economics',
+    name: 'National Income',
+    premium: true,
+    notes: 'National income is the total value of goods and services produced by a country in a year.\n\nMeasures:\n• GDP (Gross Domestic Product): Total output within a country\'s borders\n• GNP (Gross National Product): GDP + net income from abroad\n• Per capita income = National income / Population\n\nMethods of measurement:\n• Income method: Sum of all incomes\n• Output method: Sum of all outputs\n• Expenditure method: Sum of all spending\n\nC + I + G + (X-M) = GDP',
+    examples: [
+      'If GDP is ₦100 trillion and population is 200 million, per capita income = ₦500,000',
+      'Nigeria\'s GDP is largely driven by oil and services sectors',
+    ],
+  },
+  {
+    id: 'econ-trade',
+    subject: 'economics',
+    name: 'International Trade',
+    premium: true,
+    notes: 'International trade is the exchange of goods and services between countries.\n\nReasons for trade: Uneven resource distribution, specialization, wider market\n\nBalance of trade: Exports - Imports\n• Favorable: Exports > Imports\n• Unfavorable: Imports > Exports\n\nTrade barriers: Tariffs, quotas, embargoes, subsidies\nComparative advantage: A country should produce what it can make at the lowest opportunity cost.',
+    examples: [
+      'Nigeria exports crude oil and imports refined petroleum products',
+      'ECOWAS promotes free trade among West African nations',
+    ],
+  },
+
+  // ── Civic Education ───────────────────────────────
+  {
+    id: 'civic-fundamentals',
+    subject: 'civic',
+    name: 'Civic Education Fundamentals',
+    notes: 'Civic education teaches citizens their rights, duties, and responsibilities.\n\nValues:\n• Honesty, Integrity, Patriotism, Fairness, Tolerance\n\nDuties of citizens:\n• Pay taxes, obey laws, vote, defend the country\n\nNational symbols:\n• Flag (Green-White-Green)\n• Coat of Arms\n• National Anthem & Pledge\n• NYSC (National Youth Service Corps)',
+    examples: [
+      'The green in Nigeria\'s flag represents agriculture, white represents peace',
+      'October 1st is Nigeria\'s Independence Day (1960)',
+    ],
+  },
+  {
+    id: 'civic-human-rights',
+    subject: 'civic',
+    name: 'Human Rights',
+    notes: 'Human rights are basic rights and freedoms every person is entitled to.\n\nFundamental rights in the 1999 Constitution:\n• Right to life\n• Right to dignity of human person\n• Right to personal liberty\n• Right to fair hearing\n• Right to freedom of expression\n• Right to freedom of movement\n\nLimitations: Rights can be limited during emergencies, for public safety, or by court order.\n\nHuman rights organizations: Amnesty International, NHRC, UDHR',
+    examples: [
+      'The UDHR was adopted by the UN in 1948',
+      'Rights come with responsibilities — e.g., right to vote implies duty to vote wisely',
+    ],
+  },
+  {
+    id: 'civic-democracy',
+    subject: 'civic',
+    name: 'Democracy & Governance',
+    notes: 'Democracy is a system of government where power belongs to the people.\n\nPillars of democracy:\n• Rule of law\n• Fundamental human rights\n• Free and fair elections\n• Independent judiciary\n• Press freedom\n• Transparency and accountability\n\nGood governance involves:\n• Accountability, transparency, participation, rule of law, equity',
+    examples: [
+      'Nigeria returned to democracy on May 29, 1999',
+      'Civil society organizations monitor government and advocate for citizens',
+    ],
+  },
+  {
+    id: 'civic-drugs',
+    subject: 'civic',
+    name: 'Drug Abuse & Cultism',
+    premium: true,
+    notes: 'Drug abuse is the excessive or wrong use of drugs.\n\nTypes: Stimulants, depressants, narcotics, hallucinogens\n\nEffects: Health problems, mental illness, social problems, crime\n\nPrevention: Education, counseling, law enforcement (NDLEA)\n\nCultism: Secret societies in schools\nConsequences: Expulsion, imprisonment, violence, death\nPrevention: Awareness, parental guidance, strict school policies',
+    examples: [
+      'NDLEA (National Drug Law Enforcement Agency) fights drug trafficking in Nigeria',
+      'Cultism is a criminal offense in Nigeria punishable by law',
+    ],
+  },
+
+  // ── Commerce ──────────────────────────────────────
+  {
+    id: 'comm-intro',
+    subject: 'commerce',
+    name: 'Introduction to Commerce',
+    notes: 'Commerce is the study of trade and aids to trade.\n\nTrade: Exchange of goods and services\n• Home trade: Within a country (wholesale and retail)\n• Foreign trade: Between countries (import, export, entreport)\n\nAids to trade:\n• Banking, Insurance, Transportation, Warehousing, Advertising, Communication\n\nE-commerce: Buying and selling online using the internet.',
+    examples: [
+      'A wholesaler buys in bulk from manufacturers and sells to retailers',
+      'Jumia and Konga are examples of e-commerce platforms in Nigeria',
+    ],
+  },
+  {
+    id: 'comm-business',
+    subject: 'commerce',
+    name: 'Business Organizations',
+    notes: 'Types of business organizations:\n\n• Sole proprietorship: Owned by one person, unlimited liability\n• Partnership: 2-20 partners, shared profits\n• Limited liability company: Separate legal entity, limited liability\n  - Private Ltd (Ltd) — max 50 shareholders\n  - Public Ltd (PLC) — shares traded publicly\n• Cooperative societies: Owned by members for mutual benefit\n• Public enterprises: Owned by government',
+    examples: [
+      'A PLC like Dangote Cement can sell shares on the stock exchange',
+      'Partners share profits according to their partnership agreement',
+    ],
+  },
+  {
+    id: 'comm-insurance',
+    subject: 'commerce',
+    name: 'Insurance',
+    notes: 'Insurance is a contract where the insurer compensates the insured for losses in exchange for premiums.\n\nPrinciples:\n• Utmost good faith: Full disclosure of material facts\n• Insurable interest: Must have financial interest in what\'s insured\n• Indemnity: Compensation for exact loss (not profit)\n• Subrogation: Insurer takes over rights after payment\n• Contribution: Multiple insurers share the claim\n• Proximate cause: The nearest cause of loss determines liability',
+    examples: [
+      'Car insurance compensates for damage/theft of the vehicle',
+      'Life insurance is NOT a contract of indemnity — it pays a fixed sum',
+    ],
+  },
+  {
+    id: 'comm-banking',
+    subject: 'commerce',
+    name: 'Banking & Finance',
+    premium: true,
+    notes: 'Banks are financial institutions that accept deposits and give loans.\n\nTypes:\n• Commercial banks — everyday banking\n• Merchant banks — corporate finance\n• Development banks — long-term projects\n• Microfinance banks — small loans\n\nStock Exchange: Market for buying and selling securities (shares, bonds)\nSources of finance: Personal savings, bank loans, shares, debentures, trade credit',
+    examples: [
+      'Nigerian Stock Exchange (NSE) is now called NGX (Nigerian Exchange Group)',
+      'A debenture is a loan certificate — the holder is a creditor, not an owner',
+    ],
+  },
+  {
+    id: 'comm-marketing',
+    subject: 'commerce',
+    name: 'Marketing',
+    premium: true,
+    notes: 'Marketing involves identifying and satisfying consumer needs.\n\nFunctions:\n• Market research, Buying, Selling, Storage, Transportation, Financing\n\nChannels of distribution:\n• Producer → Consumer (direct)\n• Producer → Retailer → Consumer\n• Producer → Wholesaler → Retailer → Consumer\n\nAdvertising: Informing consumers about products\nConsumer protection: Protects against fraud, faulty goods (e.g., NAFDAC, SON)',
+    examples: [
+      'NAFDAC regulates food and drug safety in Nigeria',
+      'SON (Standards Organization of Nigeria) sets product quality standards',
     ],
   },
 ];
