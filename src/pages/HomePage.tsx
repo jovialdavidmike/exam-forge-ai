@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Flame, Zap, Target, ChevronRight, Sparkles, CalendarDays, User, Gift } from 'lucide-react';
-import { subjects } from '@/data/questions';
-import { getStats, getSubjectAccuracy } from '@/data/store';
+import { getStats } from '@/data/store';
 import BannerAd from '@/components/ads/BannerAd';
 import RewardButton from '@/components/ads/RewardButton';
 import { useAds } from '@/contexts/AdContext';
@@ -88,29 +87,32 @@ export default function HomePage() {
         </button>
       </div>
 
-      {/* Subjects */}
+      {/* Departments */}
       <div>
-        <h2 className="text-base font-bold text-foreground mb-3">Subjects</h2>
+        <h2 className="text-base font-bold text-foreground mb-3">Departments</h2>
         <div className="space-y-2.5">
-          {subjects.map(sub => {
-            const acc = getSubjectAccuracy(sub.id);
-            return (
-              <button
-                key={sub.id}
-                onClick={() => navigate(`/practice?subject=${sub.id}`)}
-                className="w-full bg-card rounded-xl p-3.5 border border-border flex items-center gap-3 hover:bg-muted transition-colors text-left"
-              >
-                <span className="text-2xl">{sub.icon}</span>
-                <div className="flex-1 min-w-0">
-                  <p className="font-semibold text-sm text-foreground">{sub.name}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {acc.attempted > 0 ? `${acc.percentage}% accuracy · ${acc.attempted} answered` : 'Not started'}
-                  </p>
-                </div>
-                <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-              </button>
-            );
-          })}
+          <button
+            onClick={() => navigate('/subjects?dept=science')}
+            className="w-full bg-card rounded-xl p-3.5 border border-border flex items-center gap-3 hover:bg-muted transition-colors text-left"
+          >
+            <span className="text-2xl">🔬</span>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-sm text-foreground">Science</p>
+              <p className="text-xs text-muted-foreground">Mathematics, Physics, Chemistry, Biology</p>
+            </div>
+            <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+          </button>
+          <button
+            onClick={() => navigate('/subjects?dept=arts')}
+            className="w-full bg-card rounded-xl p-3.5 border border-border flex items-center gap-3 hover:bg-muted transition-colors text-left"
+          >
+            <span className="text-2xl">📚</span>
+            <div className="flex-1 min-w-0">
+              <p className="font-semibold text-sm text-foreground">Arts & Social Sciences</p>
+              <p className="text-xs text-muted-foreground">English, Government, Literature, Economics, Civic, Commerce</p>
+            </div>
+            <ChevronRight className="w-4 h-4 text-muted-foreground flex-shrink-0" />
+          </button>
         </div>
       </div>
       {/* Reward Button */}

@@ -1,0 +1,26 @@
+{
+  "subject": "civic",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Civic Education Fundamentals",
+      "subtopics": ["Meaning of Civic Education", "Values", "Rights and Duties", "Responsibilities of Citizens", "National Symbols"],
+      "key_concepts": ["Patriotism", "Nationalism", "National Consciousness"]
+    },
+    {
+      "title": "Human Rights",
+      "subtopics": ["Fundamental Human Rights", "Right to Life", "Right to Education", "Right to Fair Hearing", "Limitations of Rights", "Human Rights Organizations"],
+      "key_concepts": ["UDHR", "African Charter", "Rule of Law"]
+    },
+    {
+      "title": "Democracy & Governance",
+      "subtopics": ["Pillars of Democracy", "Popular Participation", "Civil Society", "Elections", "Good Governance"],
+      "key_concepts": ["Transparency", "Accountability", "Due Process"]
+    },
+    {
+      "title": "Drug Abuse & Cultism",
+      "subtopics": ["Types of Drugs", "Effects of Drug Abuse", "Prevention", "Cultism in Schools", "Consequences of Cultism"],
+      "key_concepts": ["NDLEA", "Rehabilitation", "Peer Pressure"]
+    }
+  ]
+}

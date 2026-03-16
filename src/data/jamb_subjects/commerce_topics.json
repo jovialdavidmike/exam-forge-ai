@@ -1,0 +1,31 @@
+{
+  "subject": "commerce",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Introduction to Commerce",
+      "subtopics": ["Definition of Commerce", "Trade", "Aids to Trade", "Home Trade vs Foreign Trade", "E-commerce"],
+      "key_concepts": ["Wholesale", "Retail", "Entreport Trade"]
+    },
+    {
+      "title": "Business Organizations",
+      "subtopics": ["Sole Proprietorship", "Partnership", "Limited Liability Company", "Cooperative Societies", "Public Enterprises"],
+      "key_concepts": ["Articles of Association", "Memorandum of Association", "Shareholders"]
+    },
+    {
+      "title": "Insurance",
+      "subtopics": ["Principles of Insurance", "Types of Insurance", "Life Insurance", "Marine Insurance", "Fire Insurance"],
+      "key_concepts": ["Utmost Good Faith", "Indemnity", "Subrogation", "Premium"]
+    },
+    {
+      "title": "Banking & Finance",
+      "subtopics": ["Types of Banks", "Functions of Commercial Banks", "Central Bank Functions", "Stock Exchange", "Sources of Finance"],
+      "key_concepts": ["Savings Account", "Current Account", "Overdraft", "Shares and Debentures"]
+    },
+    {
+      "title": "Marketing",
+      "subtopics": ["Functions of Marketing", "Channels of Distribution", "Advertising", "Consumer Protection", "Sales Promotion"],
+      "key_concepts": ["Middlemen", "Branding", "Market Research"]
+    }
+  ]
+}

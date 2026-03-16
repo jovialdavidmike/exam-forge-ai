@@ -1,0 +1,31 @@
+{
+  "subject": "government",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Fundamentals of Government",
+      "subtopics": ["Definition of Government", "Functions of Government", "Types of Government", "Arms of Government", "Separation of Powers", "Checks and Balances"],
+      "key_concepts": ["Sovereignty", "Legitimacy", "Political Authority"]
+    },
+    {
+      "title": "The Nigerian Constitution",
+      "subtopics": ["Constitutional Development in Nigeria", "Features of the 1999 Constitution", "Fundamental Human Rights", "Citizenship", "Amendment Process"],
+      "key_concepts": ["Supremacy of the Constitution", "Rule of Law", "Federalism"]
+    },
+    {
+      "title": "Democracy & Political Participation",
+      "subtopics": ["Types of Democracy", "Features of Democracy", "Electoral System", "Political Parties", "Pressure Groups", "Public Opinion"],
+      "key_concepts": ["Universal Suffrage", "Free and Fair Elections", "Multi-party System"]
+    },
+    {
+      "title": "Federalism",
+      "subtopics": ["Features of Federalism", "Reasons for Federalism in Nigeria", "Revenue Allocation", "Federal Character Principle", "Problems of Federalism"],
+      "key_concepts": ["Division of Powers", "Concurrent List", "Exclusive List", "Residual List"]
+    },
+    {
+      "title": "International Organizations",
+      "subtopics": ["United Nations (UN)", "African Union (AU)", "ECOWAS", "Commonwealth of Nations", "Non-Aligned Movement"],
+      "key_concepts": ["Collective Security", "Diplomacy", "International Cooperation"]
+    }
+  ]
+}
