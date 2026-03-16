@@ -1,0 +1,41 @@
+{
+  "subject": "mathematics",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Algebra",
+      "subtopics": ["Linear Equations", "Quadratic Equations", "Simultaneous Equations", "Inequalities", "Indices & Logarithms", "Sequences & Series", "Polynomials", "Binomial Theorem"],
+      "key_formulas": ["ax² + bx + c = 0 → x = (-b ± √(b²-4ac))/2a", "logₐMN = logₐM + logₐN"]
+    },
+    {
+      "title": "Geometry & Mensuration",
+      "subtopics": ["Angles & Polygons", "Circle Theorems", "Areas & Perimeters", "Volume & Surface Area", "Coordinate Geometry", "Constructions & Loci"],
+      "key_formulas": ["Area of circle = πr²", "Volume of cylinder = πr²h", "Distance = √((x₂-x₁)² + (y₂-y₁)²)"]
+    },
+    {
+      "title": "Trigonometry",
+      "subtopics": ["Trigonometric Ratios", "Sine & Cosine Rules", "Angles of Elevation & Depression", "Bearings", "Graphs of Trig Functions", "Trigonometric Identities"],
+      "key_formulas": ["sin²θ + cos²θ = 1", "a/sinA = b/sinB = c/sinC", "a² = b² + c² - 2bc cosA"]
+    },
+    {
+      "title": "Statistics & Probability",
+      "subtopics": ["Mean, Median & Mode", "Standard Deviation & Variance", "Frequency Distribution", "Histograms & Ogives", "Probability Rules", "Permutations & Combinations"],
+      "key_formulas": ["P(A∪B) = P(A) + P(B) - P(A∩B)", "nCr = n!/(r!(n-r)!)", "σ = √(Σ(x-x̄)²/n)"]
+    },
+    {
+      "title": "Number & Numeration",
+      "subtopics": ["Number Bases", "Fractions & Decimals", "Percentages & Ratios", "Surds", "Sets & Venn Diagrams", "Modular Arithmetic"],
+      "key_formulas": ["√a × √b = √(ab)", "a/b of c = (a×c)/b"]
+    },
+    {
+      "title": "Calculus (Introductory)",
+      "subtopics": ["Differentiation from First Principles", "Rules of Differentiation", "Applications (Maxima & Minima)", "Integration (Basic)", "Area Under a Curve"],
+      "key_formulas": ["d/dx(xⁿ) = nxⁿ⁻¹", "∫xⁿdx = xⁿ⁺¹/(n+1) + C"]
+    },
+    {
+      "title": "Matrices & Determinants",
+      "subtopics": ["Types of Matrices", "Matrix Operations", "Determinants (2×2)", "Inverse of a Matrix", "Solving Simultaneous Equations using Matrices"],
+      "key_formulas": ["det(A) = ad - bc", "A⁻¹ = (1/det(A)) × adj(A)"]
+    }
+  ]
+}

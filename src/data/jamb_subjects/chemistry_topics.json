@@ -1,0 +1,41 @@
+{
+  "subject": "chemistry",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Atomic Structure & Chemical Bonding",
+      "subtopics": ["Atomic Theory", "Electron Configuration", "Periodic Table", "Ionic Bonding", "Covalent Bonding", "Metallic Bonding", "Van der Waals Forces", "Hydrogen Bonding"],
+      "key_concepts": ["Aufbau Principle", "Hund's Rule", "Pauli Exclusion Principle", "Octet Rule"]
+    },
+    {
+      "title": "Mole Concept & Stoichiometry",
+      "subtopics": ["Relative Atomic Mass", "Molar Mass", "Avogadro's Number", "Mole Calculations", "Empirical & Molecular Formula", "Percentage Composition", "Limiting Reagent"],
+      "key_formulas": ["n = m/M", "n = V/22.4 (at STP)", "Avogadro's number = 6.02 × 10²³"]
+    },
+    {
+      "title": "Acids, Bases & Salts",
+      "subtopics": ["Arrhenius Theory", "Brønsted-Lowry Theory", "pH Scale", "Strong & Weak Acids/Bases", "Neutralization", "Salt Preparation", "Buffer Solutions"],
+      "key_concepts": ["pH = -log[H⁺]", "Titration Calculations", "Indicators"]
+    },
+    {
+      "title": "Electrolysis & Electrochemistry",
+      "subtopics": ["Electrolytes & Non-electrolytes", "Faraday's Laws", "Electrolytic Cells", "Galvanic Cells", "Electrochemical Series", "Corrosion & Prevention"],
+      "key_formulas": ["m = ZIt", "Z = A/(nF)", "F = 96500 C/mol"]
+    },
+    {
+      "title": "Organic Chemistry",
+      "subtopics": ["Hydrocarbons (Alkanes, Alkenes, Alkynes)", "Functional Groups", "IUPAC Nomenclature", "Isomerism", "Alcohols & Ethers", "Carboxylic Acids & Esters", "Polymers", "Petrochemicals"],
+      "key_concepts": ["Homologous Series", "Substitution Reactions", "Addition Reactions", "Polymerization"]
+    },
+    {
+      "title": "Gas Laws",
+      "subtopics": ["Boyle's Law", "Charles's Law", "General Gas Law", "Ideal Gas Equation", "Dalton's Law of Partial Pressures", "Graham's Law of Diffusion"],
+      "key_formulas": ["PV = nRT", "P1V1/T1 = P2V2/T2", "r1/r2 = √(M2/M1)"]
+    },
+    {
+      "title": "Chemical Kinetics & Equilibrium",
+      "subtopics": ["Rate of Reaction", "Factors Affecting Rate", "Collision Theory", "Le Chatelier's Principle", "Equilibrium Constant", "Haber Process", "Contact Process"],
+      "key_concepts": ["Activation Energy", "Catalysts", "Kc and Kp expressions"]
+    }
+  ]
+}
