@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { Flame, Zap, Target, ChevronRight, Sparkles, CalendarDays, User, Gift } from 'lucide-react';
-import { subjects } from '@/data/questions';
-import { getStats, getSubjectAccuracy } from '@/data/store';
+import { getStats } from '@/data/store';
 import BannerAd from '@/components/ads/BannerAd';
 import RewardButton from '@/components/ads/RewardButton';
 import { useAds } from '@/contexts/AdContext';
