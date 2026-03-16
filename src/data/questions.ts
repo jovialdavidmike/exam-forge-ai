@@ -20,11 +20,18 @@ export interface Topic {
 }
 
 export const subjects = [
-  { id: 'mathematics', name: 'Mathematics', icon: '📐', color: 'hsl(210, 100%, 52%)' },
-  { id: 'english', name: 'English', icon: '📖', color: 'hsl(280, 70%, 55%)' },
-  { id: 'biology', name: 'Biology', icon: '🧬', color: 'hsl(140, 70%, 40%)' },
-  { id: 'chemistry', name: 'Chemistry', icon: '⚗️', color: 'hsl(38, 92%, 50%)' },
-  { id: 'physics', name: 'Physics', icon: '⚡', color: 'hsl(0, 80%, 55%)' },
+  // Science
+  { id: 'mathematics', name: 'Mathematics', icon: '📐', color: 'hsl(210, 100%, 52%)', department: 'science' },
+  { id: 'english', name: 'English', icon: '📖', color: 'hsl(280, 70%, 55%)', department: 'arts' },
+  { id: 'biology', name: 'Biology', icon: '🧬', color: 'hsl(140, 70%, 40%)', department: 'science' },
+  { id: 'chemistry', name: 'Chemistry', icon: '⚗️', color: 'hsl(38, 92%, 50%)', department: 'science' },
+  { id: 'physics', name: 'Physics', icon: '⚡', color: 'hsl(0, 80%, 55%)', department: 'science' },
+  // Arts & Social Sciences
+  { id: 'government', name: 'Government', icon: '🏛️', color: 'hsl(220, 60%, 50%)', department: 'arts' },
+  { id: 'literature', name: 'Literature in English', icon: '📚', color: 'hsl(320, 60%, 50%)', department: 'arts' },
+  { id: 'economics', name: 'Economics', icon: '💰', color: 'hsl(45, 80%, 45%)', department: 'arts' },
+  { id: 'civic', name: 'Civic Education', icon: '🤝', color: 'hsl(160, 50%, 45%)', department: 'arts' },
+  { id: 'commerce', name: 'Commerce', icon: '🏪', color: 'hsl(25, 70%, 50%)', department: 'arts' },
 ];
 
 export const topics: Topic[] = [
