@@ -24,14 +24,29 @@ export default function PracticePage() {
       pool = pool.filter(q => !q.premium || isTopicUnlocked(q.topic));
     }
 
+    if (subjectId) {
+      pool = pool.filter(q => q.subject === subjectId);
+    }
+
+    // Deduplicate by ID
+    const seen = new Set<string>();
+    pool = pool.filter(q => {
+      if (seen.has(q.id)) return false;
+      seen.add(q.id);
+      return true;
+    });
+
+    // Shuffle using Fisher-Yates for true randomness
+    const shuffled = [...pool];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+
     if (isDaily) {
-      const shuffled = [...pool].sort(() => Math.random() - 0.5);
       return shuffled.slice(0, 10);
     }
-    if (subjectId) {
-      return pool.filter(q => q.subject === subjectId).sort(() => Math.random() - 0.5);
-    }
-    return pool.sort(() => Math.random() - 0.5);
+    return shuffled;
   }, [subjectId, isDaily, isPremium, isTopicUnlocked]);
 
   const [currentIdx, setCurrentIdx] = useState(0);

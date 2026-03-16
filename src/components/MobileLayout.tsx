@@ -13,7 +13,7 @@ import {
 
 const tabs = [
   { path: '/', label: 'Home', icon: Home },
-  { path: '/practice', label: 'Practice', icon: BookOpen },
+  { path: '/departments', label: 'Subjects', icon: BookOpen },
   { path: '/topics', label: 'Topics', icon: Layers },
   { path: '/ai-tutor', label: 'AI Tutor', icon: Sparkles },
   { path: '/progress', label: 'Progress', icon: BarChart3 },
