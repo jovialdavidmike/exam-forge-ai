@@ -1,0 +1,31 @@
+{
+  "subject": "literature",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Literary Terms & Devices",
+      "subtopics": ["Plot", "Theme", "Setting", "Characterization", "Point of View", "Conflict", "Irony", "Symbolism", "Foreshadowing"],
+      "key_concepts": ["Protagonist vs Antagonist", "Dramatic Irony", "Comic Relief"]
+    },
+    {
+      "title": "Poetry",
+      "subtopics": ["Types of Poetry", "Poetic Devices", "Rhyme & Rhythm", "Imagery", "Tone & Mood", "Stanza Forms"],
+      "key_concepts": ["Sonnet", "Ode", "Elegy", "Free Verse", "Blank Verse"]
+    },
+    {
+      "title": "Prose Fiction",
+      "subtopics": ["Novel", "Novella", "Short Story", "Narrative Techniques", "Themes in African Prose"],
+      "key_concepts": ["First Person Narration", "Omniscient Narrator", "Flashback"]
+    },
+    {
+      "title": "Drama",
+      "subtopics": ["Types of Drama", "Elements of Drama", "Tragedy", "Comedy", "Tragicomedy", "Stage Directions"],
+      "key_concepts": ["Soliloquy", "Aside", "Act and Scene", "Catharsis"]
+    },
+    {
+      "title": "African Literature",
+      "subtopics": ["Themes in African Literature", "Colonialism & Post-colonialism", "Cultural Conflict", "Oral Tradition", "Notable African Authors"],
+      "key_concepts": ["Chinua Achebe", "Wole Soyinka", "Ngugi wa Thiong'o"]
+    }
+  ]
+}

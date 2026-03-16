@@ -1,0 +1,31 @@
+{
+  "subject": "economics",
+  "source": "Lamlad Textbooks",
+  "topics": [
+    {
+      "title": "Basic Economic Concepts",
+      "subtopics": ["Definition of Economics", "Scarcity & Choice", "Opportunity Cost", "Scale of Preference", "Economic Systems", "Factors of Production"],
+      "key_concepts": ["Land", "Labour", "Capital", "Entrepreneurship"]
+    },
+    {
+      "title": "Demand & Supply",
+      "subtopics": ["Law of Demand", "Law of Supply", "Market Equilibrium", "Elasticity of Demand", "Elasticity of Supply", "Price Controls"],
+      "key_concepts": ["Demand Curve", "Supply Curve", "Equilibrium Price"]
+    },
+    {
+      "title": "Money & Banking",
+      "subtopics": ["Functions of Money", "Types of Money", "Commercial Banks", "Central Bank", "Monetary Policy", "Inflation"],
+      "key_concepts": ["Legal Tender", "Credit Creation", "Interest Rate"]
+    },
+    {
+      "title": "National Income",
+      "subtopics": ["GDP and GNP", "Methods of Measuring National Income", "Per Capita Income", "Standard of Living"],
+      "key_concepts": ["Income Method", "Output Method", "Expenditure Method"]
+    },
+    {
+      "title": "International Trade",
+      "subtopics": ["Balance of Trade", "Balance of Payments", "Trade Barriers", "Exchange Rate", "Terms of Trade"],
+      "key_concepts": ["Absolute Advantage", "Comparative Advantage", "Tariffs and Quotas"]
+    }
+  ]
+}
