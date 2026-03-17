@@ -25,8 +25,15 @@ export default function PracticePage() {
       pool = pool.filter(q => !q.premium || isTopicUnlocked(q.topic));
     }
 
+    // Filter by specific subject
     if (subjectId) {
       pool = pool.filter(q => q.subject === subjectId);
+    } else if (deptId) {
+      // Filter by department subjects
+      const deptSubjectIds = subjects
+        .filter(s => s.department === deptId)
+        .map(s => s.id);
+      pool = pool.filter(q => deptSubjectIds.includes(q.subject));
     }
 
     // Deduplicate by ID
@@ -48,7 +55,7 @@ export default function PracticePage() {
       return shuffled.slice(0, 10);
     }
     return shuffled;
-  }, [subjectId, isDaily, isPremium, isTopicUnlocked]);
+  }, [subjectId, deptId, isDaily, isPremium, isTopicUnlocked]);
 
   const [currentIdx, setCurrentIdx] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
