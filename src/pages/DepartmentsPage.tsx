@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import { ChevronRight, FlaskConical, BookOpen } from 'lucide-react';
 import { subjects } from '@/data/questions';
 import { getSubjectAccuracy } from '@/data/store';
@@ -24,12 +24,24 @@ const departments = [
 
 export default function DepartmentsPage() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isDaily = searchParams.get('daily') === 'true';
+
+  const handleDeptClick = (deptId: string) => {
+    if (isDaily) {
+      navigate(`/practice?daily=true&dept=${deptId}`);
+    } else {
+      navigate(`/subjects?dept=${deptId}`);
+    }
+  };
 
   return (
     <div className="px-4 pt-6 pb-4 space-y-6">
       <div>
         <h1 className="text-xl font-extrabold text-foreground">Choose Department</h1>
-        <p className="text-sm text-muted-foreground">Select your department to see relevant subjects</p>
+        <p className="text-sm text-muted-foreground">
+          {isDaily ? 'Pick your department for daily practice' : 'Select your department to see relevant subjects'}
+        </p>
       </div>
 
       <div className="space-y-4">
@@ -40,7 +52,7 @@ export default function DepartmentsPage() {
           return (
             <button
               key={dept.id}
-              onClick={() => navigate(`/subjects?dept=${dept.id}`)}
+              onClick={() => handleDeptClick(dept.id)}
               className={`w-full bg-gradient-to-br ${dept.gradient} rounded-2xl p-5 border border-border text-left transition-all hover:scale-[1.01] active:scale-[0.99]`}
             >
               <div className="flex items-start gap-4">

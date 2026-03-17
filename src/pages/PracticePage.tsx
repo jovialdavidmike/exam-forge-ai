@@ -12,6 +12,7 @@ export default function PracticePage() {
   const { user, refreshProfile } = useAuth();
   const navigate = useNavigate();
   const subjectId = searchParams.get('subject');
+  const deptId = searchParams.get('dept');
   const isDaily = searchParams.get('daily') === 'true';
 
   const { incrementQuestions, interstitialShownThisSession, setShowInterstitial, isPremium, isTopicUnlocked } = useAds();
