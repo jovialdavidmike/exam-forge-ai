@@ -46,7 +46,7 @@ export default function HomePage() {
 
       {/* Daily Practice CTA */}
       <button
-        onClick={() => navigate('/practice?daily=true')}
+        onClick={() => navigate('/departments?daily=true')}
         className={`w-full rounded-xl p-4 flex items-center justify-between transition-all ${
           dailyDone
             ? 'bg-muted border border-border'
@@ -56,7 +56,7 @@ export default function HomePage() {
         <div className="text-left">
           <p className="font-bold text-base">{dailyDone ? '✅ Daily Practice Done!' : '🎯 Daily Practice'}</p>
           <p className={`text-xs mt-0.5 ${dailyDone ? 'text-muted-foreground' : 'opacity-90'}`}>
-            {dailyDone ? 'Come back tomorrow' : '10 questions across all subjects'}
+            {dailyDone ? 'Come back tomorrow' : '10 questions · choose your department'}
           </p>
         </div>
         {!dailyDone && <ChevronRight className="w-5 h-5" />}
