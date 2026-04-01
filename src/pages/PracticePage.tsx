@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock, Trophy } from 'lucide-react';
 import { questions as allQuestions, subjects } from '@/data/questions';
 import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 import { useAds } from '@/contexts/AdContext';
@@ -62,6 +62,7 @@ export default function PracticePage() {
   const [score, setScore] = useState(0);
   const [finished, setFinished] = useState(false);
   const [bookmarks, setBookmarks] = useState<string[]>(getBookmarks());
+  const [sessionPoints, setSessionPoints] = useState(0);
 
   const current = questionSet[currentIdx];
   const answered = selectedOption !== null;
@@ -73,20 +74,27 @@ export default function PracticePage() {
     if (answered) return;
     setSelectedOption(idx);
     const correct = idx === current.correctIndex;
-    if (correct) setScore(prev => prev + 1);
+    if (correct) {
+      setScore(prev => prev + 1);
+      setSessionPoints(prev => prev + 3);
+    }
     recordAttempt(current.id, current.subject, current.topic, correct);
     incrementQuestions();
 
     // Sync to Supabase via secure RPC
     if (user) {
-      await supabase.rpc('update_user_stats', {
-        p_user_id: user.id,
-        p_points_to_add: correct ? 3 : 0,
-        p_questions_to_add: 1,
-        p_correct_to_add: correct ? 1 : 0,
-        p_quizzes_to_add: 0,
-      });
-      refreshProfile();
+      try {
+        await supabase.rpc('update_user_stats', {
+          p_user_id: user.id,
+          p_points_to_add: correct ? 3 : 0,
+          p_questions_to_add: 1,
+          p_correct_to_add: correct ? 1 : 0,
+          p_quizzes_to_add: 0,
+        });
+        await refreshProfile();
+      } catch (e) {
+        console.error('Failed to sync stats:', e);
+      }
     }
   }, [answered, current, incrementQuestions, user, refreshProfile]);
 
@@ -128,7 +136,7 @@ export default function PracticePage() {
           <button onClick={() => navigate('/')} className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-semibold">
             Back to Home
           </button>
-          <button onClick={() => { setCurrentIdx(0); setSelectedOption(null); setScore(0); setFinished(false); }} className="w-full bg-secondary text-secondary-foreground py-3 rounded-xl font-semibold">
+          <button onClick={() => { setCurrentIdx(0); setSelectedOption(null); setScore(0); setFinished(false); setSessionPoints(0); }} className="w-full bg-secondary text-secondary-foreground py-3 rounded-xl font-semibold">
             Try Again
           </button>
         </div>
@@ -209,9 +217,17 @@ export default function PracticePage() {
         })}
       </div>
 
+      {/* Points tracker */}
+      {sessionPoints > 0 && (
+        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-primary animate-fade-in">
+          <Trophy className="w-4 h-4" />
+          <span>{sessionPoints} pts earned this session</span>
+        </div>
+      )}
+
       {/* Explanation */}
       {answered && (
-        <div className={`mt-5 p-4 rounded-xl border ${isCorrect ? 'bg-success/5 border-success/30' : 'bg-destructive/5 border-destructive/30'}`}>
+        <div className={`mt-3 p-4 rounded-xl border ${isCorrect ? 'bg-success/5 border-success/30' : 'bg-destructive/5 border-destructive/30'}`}>
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? <CheckCircle className="w-4 h-4 text-success" /> : <XCircle className="w-4 h-4 text-destructive" />}
             <span className={`text-sm font-bold ${isCorrect ? 'text-success' : 'text-destructive'}`}>
