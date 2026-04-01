@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock } from 'lucide-react';
+import { ArrowLeft, CheckCircle, XCircle, ChevronRight, Bookmark, Lock, Trophy } from 'lucide-react';
 import { questions as allQuestions, subjects } from '@/data/questions';
 import { recordAttempt, markDailyComplete, toggleBookmark, getBookmarks } from '@/data/store';
 import { useAds } from '@/contexts/AdContext';
