@@ -136,7 +136,7 @@ export default function PracticePage() {
           <button onClick={() => navigate('/')} className="w-full bg-primary text-primary-foreground py-3 rounded-xl font-semibold">
             Back to Home
           </button>
-          <button onClick={() => { setCurrentIdx(0); setSelectedOption(null); setScore(0); setFinished(false); }} className="w-full bg-secondary text-secondary-foreground py-3 rounded-xl font-semibold">
+          <button onClick={() => { setCurrentIdx(0); setSelectedOption(null); setScore(0); setFinished(false); setSessionPoints(0); }} className="w-full bg-secondary text-secondary-foreground py-3 rounded-xl font-semibold">
             Try Again
           </button>
         </div>
