@@ -6,11 +6,31 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type, x-supabase-client-platform, x-supabase-client-platform-version, x-supabase-client-runtime, x-supabase-client-runtime-version",
 };
 
+const MAX_MESSAGES = 50;
+const MAX_CONTENT_LENGTH = 2000;
+const ALLOWED_ROLES = new Set(["user", "assistant"]);
+
+function validateMessages(messages: unknown): { valid: boolean; error?: string; sanitized?: Array<{ role: string; content: string }> } {
+  if (!Array.isArray(messages)) return { valid: false, error: "messages must be an array" };
+  if (messages.length === 0) return { valid: false, error: "messages cannot be empty" };
+  if (messages.length > MAX_MESSAGES) return { valid: false, error: `messages exceeds maximum of ${MAX_MESSAGES}` };
+
+  const sanitized: Array<{ role: string; content: string }> = [];
+  for (const msg of messages) {
+    if (typeof msg !== "object" || msg === null) return { valid: false, error: "each message must be an object" };
+    const { role, content } = msg as Record<string, unknown>;
+    if (typeof role !== "string" || !ALLOWED_ROLES.has(role)) return { valid: false, error: "message role must be 'user' or 'assistant'" };
+    if (typeof content !== "string" || content.length === 0) return { valid: false, error: "message content must be a non-empty string" };
+    if (content.length > MAX_CONTENT_LENGTH) return { valid: false, error: `message content exceeds ${MAX_CONTENT_LENGTH} characters` };
+    sanitized.push({ role, content });
+  }
+  return { valid: true, sanitized };
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
-    // Authenticate the caller
     const authHeader = req.headers.get("Authorization");
     if (!authHeader?.startsWith("Bearer ")) {
       return new Response(JSON.stringify({ error: "Unauthorized" }), {
@@ -30,7 +50,14 @@ serve(async (req) => {
       });
     }
 
-    const { messages } = await req.json();
+    const body = await req.json();
+    const validation = validateMessages(body?.messages);
+    if (!validation.valid) {
+      return new Response(JSON.stringify({ error: validation.error }), {
+        status: 400, headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
@@ -105,7 +132,7 @@ Brief explanation of why this is correct.
 
 **Biology:** Cell Biology (Organelles, Cell Division), Genetics & Heredity (Mendel's Laws, Blood Groups, Mutations), Ecology & Environment (Food Chains, Nutrient Cycling), Human Body Systems (Circulatory, Nervous, Endocrine), Reproduction & Growth, Photosynthesis & Respiration, Evolution & Classification`,
           },
-          ...messages,
+          ...validation.sanitized!,
         ],
         stream: true,
       }),
@@ -134,7 +161,7 @@ Brief explanation of why this is correct.
     });
   } catch (e) {
     console.error("ai-tutor error:", e);
-    return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {
+    return new Response(JSON.stringify({ error: "An unexpected error occurred." }), {
       status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   }
