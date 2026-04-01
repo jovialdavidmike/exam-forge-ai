@@ -217,9 +217,17 @@ export default function PracticePage() {
         })}
       </div>
 
+      {/* Points tracker */}
+      {sessionPoints > 0 && (
+        <div className="mt-4 flex items-center justify-center gap-2 text-sm font-semibold text-primary animate-fade-in">
+          <Trophy className="w-4 h-4" />
+          <span>{sessionPoints} pts earned this session</span>
+        </div>
+      )}
+
       {/* Explanation */}
       {answered && (
-        <div className={`mt-5 p-4 rounded-xl border ${isCorrect ? 'bg-success/5 border-success/30' : 'bg-destructive/5 border-destructive/30'}`}>
+        <div className={`mt-3 p-4 rounded-xl border ${isCorrect ? 'bg-success/5 border-success/30' : 'bg-destructive/5 border-destructive/30'}`}>
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? <CheckCircle className="w-4 h-4 text-success" /> : <XCircle className="w-4 h-4 text-destructive" />}
             <span className={`text-sm font-bold ${isCorrect ? 'text-success' : 'text-destructive'}`}>
