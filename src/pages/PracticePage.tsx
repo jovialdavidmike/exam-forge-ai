@@ -74,20 +74,27 @@ export default function PracticePage() {
     if (answered) return;
     setSelectedOption(idx);
     const correct = idx === current.correctIndex;
-    if (correct) setScore(prev => prev + 1);
+    if (correct) {
+      setScore(prev => prev + 1);
+      setSessionPoints(prev => prev + 3);
+    }
     recordAttempt(current.id, current.subject, current.topic, correct);
     incrementQuestions();
 
     // Sync to Supabase via secure RPC
     if (user) {
-      await supabase.rpc('update_user_stats', {
-        p_user_id: user.id,
-        p_points_to_add: correct ? 3 : 0,
-        p_questions_to_add: 1,
-        p_correct_to_add: correct ? 1 : 0,
-        p_quizzes_to_add: 0,
-      });
-      refreshProfile();
+      try {
+        await supabase.rpc('update_user_stats', {
+          p_user_id: user.id,
+          p_points_to_add: correct ? 3 : 0,
+          p_questions_to_add: 1,
+          p_correct_to_add: correct ? 1 : 0,
+          p_quizzes_to_add: 0,
+        });
+        await refreshProfile();
+      } catch (e) {
+        console.error('Failed to sync stats:', e);
+      }
     }
   }, [answered, current, incrementQuestions, user, refreshProfile]);
 
