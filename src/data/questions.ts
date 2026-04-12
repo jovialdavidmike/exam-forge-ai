@@ -2376,7 +2376,7 @@ export const questions: Question[] = [
     options: ['Identity matrix', 'Null matrix', 'Singular matrix', 'Transpose matrix'], correctIndex: 0,
     explanation: 'A matrix with 1s on the diagonal and 0s elsewhere is the identity matrix.' },
   { id: 'eng-34', subject: 'english', topic: 'Comprehension & Summary', difficulty: 'easy',
-    question: 'A passage states that 'the policy was a double-edged sword'. This means:',
+    question: 'A passage states that the policy was a double-edged sword. This means:',
     options: ['It was a weapon', 'It had both advantages and disadvantages', 'It was very sharp', 'It caused injuries'], correctIndex: 1,
     explanation: 'A double-edged sword is an idiom meaning something that has both positive and negative consequences.' },
   { id: 'eng-35', subject: 'english', topic: 'Comprehension & Summary', difficulty: 'medium',
