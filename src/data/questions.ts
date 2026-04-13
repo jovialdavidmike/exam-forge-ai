@@ -109,7 +109,7 @@ export const topics: Topic[] = [
     id: 'mole-concept',
     subject: 'chemistry',
     name: 'Mole Concept',
-    notes: 'A mole is a unit that measures the amount of substance. One mole contains 6.022 × 10²³ particles (Avogadro\'s number).\n\nKey formulas:\n• Number of moles = mass / molar mass\n• Number of particles = moles × 6.022 × 10²³\n• Molar mass is the mass of one mole of a substance (in g/mol)',
+    notes: `A mole is a unit that measures the amount of substance. One mole contains 6.022 x 10^23 particles (Avogadro's number).\n\nKey formulas:\n- Number of moles = mass / molar mass\n- Number of particles = moles x 6.022 x 10^23\n- Molar mass is the mass of one mole of a substance (in g/mol)`,
     examples: [
       'Moles of 36g of water (H₂O): 36/18 = 2 moles',
       'Mass of 0.5 mol NaCl: 0.5 × 58.5 = 29.25g',
@@ -165,7 +165,7 @@ export const topics: Topic[] = [
     subject: 'chemistry',
     name: 'Gas Laws',
     premium: true,
-    notes: 'Gas laws describe the behavior of gases under different conditions.\n\n• Boyle\'s Law: PV = constant (at constant T)\n  P₁V₁ = P₂V₂\n• Charles\'s Law: V/T = constant (at constant P)\n  V₁/T₁ = V₂/T₂\n• General Gas Law: P₁V₁/T₁ = P₂V₂/T₂\n• Ideal Gas Law: PV = nRT\n\nSTP: 0°C (273K), 1 atm. Molar volume at STP = 22.4 dm³',
+    notes: `Gas laws describe the behavior of gases under different conditions.\n\n- Boyle's Law: PV = constant (at constant T)\n  P1V1 = P2V2\n- Charles's Law: V/T = constant (at constant P)\n  V1/T1 = V2/T2\n- General Gas Law: P1V1/T1 = P2V2/T2\n- Ideal Gas Law: PV = nRT\n\nSTP: 0 degrees C (273K), 1 atm. Molar volume at STP = 22.4 dm3`,
     examples: [
       'A gas at 2 atm occupies 5L. At 1 atm: V₂ = (2×5)/1 = 10L',
       'At 273K a gas is 10L. At 546K: V₂ = 10 × 546/273 = 20L',
@@ -242,7 +242,7 @@ export const topics: Topic[] = [
     id: 'motion',
     subject: 'physics',
     name: 'Motion & Forces',
-    notes: 'Motion is a change in position over time. Newton\'s Laws govern motion:\n\n1st Law: An object stays at rest or in motion unless acted on by a force\n2nd Law: F = ma (Force = mass × acceleration)\n3rd Law: Every action has an equal and opposite reaction\n\nKey equations:\n• v = u + at\n• s = ut + ½at²\n• v² = u² + 2as',
+    notes: `Motion is a change in position over time. Newton's Laws govern motion:\n\n1st Law: An object stays at rest or in motion unless acted on by a force\n2nd Law: F = ma (Force = mass x acceleration)\n3rd Law: Every action has an equal and opposite reaction\n\nKey equations:\n- v = u + at\n- s = ut + 0.5at^2\n- v^2 = u^2 + 2as`,
     examples: [
       'A car accelerates from 0 to 20 m/s in 5s: a = 20/5 = 4 m/s²',
       'Force on 3kg object at 4 m/s²: F = 3 × 4 = 12 N',
