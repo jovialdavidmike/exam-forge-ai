@@ -1443,7 +1443,7 @@ export const questions: Question[] = [
   { id: 'eng-14', subject: 'english', topic: 'Essay Writing', difficulty: 'medium', premium: true,
     question: 'What is the correct order for a formal letter?',
     options: ['Salutation → Address → Body → Date', 'Address → Date → Salutation → Body', 'Date → Address → Body → Salutation', 'Body → Salutation → Date → Address'], correctIndex: 1,
-    explanation: 'Formal letter format: Writer\'s address → Date → Recipient's address → Salutation → Body → Complimentary close → Signature' },
+    explanation: `Formal letter format: Writer's address → Date → Recipient's address → Salutation → Body → Complimentary close → Signature` },
 
   // — Vocabulary (Premium) —
   { id: 'eng-15', subject: 'english', topic: 'Vocabulary & Word Usage', difficulty: 'easy', premium: true,
