@@ -339,7 +339,7 @@ export const topics: Topic[] = [
     subject: 'english',
     name: 'Figures of Speech',
     premium: true,
-    notes: 'Figures of speech are special ways of using language for effect.\n\n• Simile: Comparison using "like" or "as" — "He runs like the wind"\n• Metaphor: Direct comparison — "Life is a journey"\n• Personification: Giving human qualities to non-human things — "The wind whispered"\n• Hyperbole: Exaggeration — "I'm so hungry I could eat a horse"\n• Alliteration: Repetition of initial consonant sounds — "Peter Piper picked"\n• Onomatopoeia: Words that imitate sounds — "buzz, hiss, splash"\n• Irony: Saying the opposite of what is meant\n• Oxymoron: Contradictory terms — "deafening silence"',
+    notes: 'Figures of speech are special ways of using language for effect.\n\n• Simile: Comparison using "like" or "as" — "He runs like the wind"\n• Metaphor: Direct comparison — "Life is a journey"\n• Personification: Giving human qualities to non-human things — "The wind whispered"\n• Hyperbole: Exaggeration — "I\\'m so hungry I could eat a horse"\n• Alliteration: Repetition of initial consonant sounds — "Peter Piper picked"\n• Onomatopoeia: Words that imitate sounds — "buzz, hiss, splash"\n• Irony: Saying the opposite of what is meant\n• Oxymoron: Contradictory terms — "deafening silence"',
     examples: [
       '"Her smile was as bright as the sun" — Simile',
       '"The classroom was a zoo" — Metaphor',
@@ -362,7 +362,7 @@ export const topics: Topic[] = [
     subject: 'english',
     name: 'Vocabulary & Word Usage',
     premium: true,
-    notes: 'Building a strong vocabulary is essential for exams.\n\nKey areas:\n• Synonyms: Words with similar meanings (big = large, enormous)\n• Antonyms: Words with opposite meanings (hot ≠ cold)\n• Homophones: Words that sound the same but differ in meaning (their/there/they're)\n• Idioms: Phrases with figurative meanings ("break a leg" = good luck)\n• Phrasal verbs: Verb + preposition combinations (look up, give in, put off)\n• Register: Formal vs informal language use',
+    notes: 'Building a strong vocabulary is essential for exams.\n\nKey areas:\n• Synonyms: Words with similar meanings (big = large, enormous)\n• Antonyms: Words with opposite meanings (hot ≠ cold)\n• Homophones: Words that sound the same but differ in meaning (their/there/they\\'re)\n• Idioms: Phrases with figurative meanings ("break a leg" = good luck)\n• Phrasal verbs: Verb + preposition combinations (look up, give in, put off)\n• Register: Formal vs informal language use',
     examples: [
       'Synonyms of "happy": joyful, elated, ecstatic, content, delighted',
       'Idiom: "Burning the midnight oil" means studying late at night',
@@ -431,7 +431,7 @@ export const topics: Topic[] = [
     notes: 'Literary devices are techniques authors use to convey meaning.\n\nKey terms:\n• Plot: Sequence of events in a story\n• Theme: Central idea or message\n• Setting: Time and place of the story\n• Characterization: How characters are developed\n• Conflict: Struggle between opposing forces\n• Irony: Gap between expectation and reality\n• Symbolism: Using objects to represent ideas\n• Foreshadowing: Hints about future events',
     examples: [
       'In "Things Fall Apart", the title symbolizes the collapse of Igbo society',
-      'Dramatic irony: The audience knows something the character doesn't',
+      'Dramatic irony: The audience knows something the character doesn\\'t',
     ],
   },
   {
@@ -459,7 +459,7 @@ export const topics: Topic[] = [
     subject: 'literature',
     name: 'Drama',
     premium: true,
-    notes: 'Drama is literature meant to be performed on stage.\n\nTypes:\n• Tragedy: Ends in suffering/death of the hero\n• Comedy: Humorous, ends happily\n• Tragicomedy: Mix of both\n\nElements:\n• Acts and Scenes\n• Dialogue and Monologue\n• Soliloquy: Character speaks thoughts aloud alone\n• Aside: Character speaks to audience, other characters don't hear\n• Stage directions: Instructions for performance',
+    notes: 'Drama is literature meant to be performed on stage.\n\nTypes:\n• Tragedy: Ends in suffering/death of the hero\n• Comedy: Humorous, ends happily\n• Tragicomedy: Mix of both\n\nElements:\n• Acts and Scenes\n• Dialogue and Monologue\n• Soliloquy: Character speaks thoughts aloud alone\n• Aside: Character speaks to audience, other characters don\\'t hear\n• Stage directions: Instructions for performance',
     examples: [
       '"The Lion and the Jewel" by Wole Soyinka is a comedy',
       'Catharsis is the emotional release the audience feels in a tragedy',
@@ -1429,7 +1429,7 @@ export const questions: Question[] = [
   { id: 'eng-11', subject: 'english', topic: 'Figures of Speech', difficulty: 'medium', premium: true,
     question: '"The flowers danced in the breeze" is an example of:',
     options: ['Simile', 'Metaphor', 'Personification', 'Alliteration'], correctIndex: 2,
-    explanation: 'Personification gives human qualities to non-human things. Flowers can't literally dance — this is a human action.' },
+    explanation: 'Personification gives human qualities to non-human things. Flowers can\\'t literally dance — this is a human action.' },
   { id: 'eng-12', subject: 'english', topic: 'Figures of Speech', difficulty: 'hard', premium: true,
     question: '"It was a deafening silence" is an example of:',
     options: ['Hyperbole', 'Oxymoron', 'Irony', 'Metaphor'], correctIndex: 1,
@@ -1807,7 +1807,7 @@ export const questions: Question[] = [
 
   { id: 'lit_prose_001', subject: 'literature', topic: 'Prose Fiction', difficulty: 'easy',
     question: '"Things Fall Apart" was written by:',
-    options: ['Wole Soyinka', 'Chinua Achebe', 'Ngũgĩ wa Thiong'o', 'Chimamanda Adichie'], correctIndex: 1,
+    options: ['Wole Soyinka', 'Chinua Achebe', 'Ngũgĩ wa Thiong\\'o', 'Chimamanda Adichie'], correctIndex: 1,
     explanation: '"Things Fall Apart" (1958) by Chinua Achebe is one of the most widely read books in African literature.' },
   { id: 'lit_prose_002', subject: 'literature', topic: 'Prose Fiction', difficulty: 'medium',
     question: 'A narrative told by a character within the story using "I" is:',
