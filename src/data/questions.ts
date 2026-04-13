@@ -1099,7 +1099,7 @@ export const questions: Question[] = [
     explanation: 'Fertilization is the fusion of sperm (male gamete) and egg (female gamete) to form a zygote.' },
 
   { id: 'bio-18', subject: 'biology', topic: 'Cell Structure and Functions', difficulty: 'medium',
-    question: \'Which of the following organelles is known as the \'powerhouse' of the cell?',
+    question: 'Which of the following organelles is known as the ‘powerhouse’ of the cell?',
     options: ['Nucleus', 'Mitochondrion', 'Ribosome', 'Golgi body'], correctIndex: 1,
     explanation: 'The mitochondrion is responsible for aerobic respiration and the production of ATP, providing energy for cellular activities.' },
   { id: 'bio-19', subject: 'biology', topic: 'Nutrition', difficulty: 'easy',
@@ -1443,7 +1443,7 @@ export const questions: Question[] = [
   { id: 'eng-14', subject: 'english', topic: 'Essay Writing', difficulty: 'medium', premium: true,
     question: 'What is the correct order for a formal letter?',
     options: ['Salutation → Address → Body → Date', 'Address → Date → Salutation → Body', 'Date → Address → Body → Salutation', 'Body → Salutation → Date → Address'], correctIndex: 1,
-    explanation: 'Formal letter format: Writer's address → Date → Recipient's address → Salutation → Body → Complimentary close → Signature' },
+    explanation: 'Formal letter format: Writer\'s address → Date → Recipient's address → Salutation → Body → Complimentary close → Signature' },
 
   // — Vocabulary (Premium) —
   { id: 'eng-15', subject: 'english', topic: 'Vocabulary & Word Usage', difficulty: 'easy', premium: true,
