@@ -12,10 +12,10 @@ If you'd like to dive in and start making changes, here's the fastest way:
 
 text
 # Step 1: Clone the repository
-git clone <YOUR_GIT_URL>
+git clone <https://github.com/jovialdavidmike/exam-forge-ai>
 
 # Step 2: Navigate to the project directory
-cd <YOUR_PROJECT_NAME>
+cd <exam-forge-ai>
 
 # Step 3: Install dependencies
 npm i
